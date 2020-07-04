@@ -1,6 +1,6 @@
 <div align="center">
-<h1>OBahia - Intelligent Territorial Strategy System</h1>
-<h2>Time Series Analysis</h2>
+<h1>OBahia - Sistêma de Inteligência Territorial Estratégica</h1>
+<h2>Previsão do início do período chuvoso</h2>
 <br>
 <img width="600" src="assets/print.png" alt="OBahia - Análise de séries temporais">
 <br>
