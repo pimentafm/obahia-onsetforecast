@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import OlMap from 'ol/Map';
 
@@ -19,8 +19,6 @@ import { Container } from './styles';
 import Menu from '../Menu';
 import Footer from '../Footer';
 
-import CardPlot from '../CardPlot';
-
 import Popup from '../../components/Popup';
 
 interface MapProps {
@@ -29,11 +27,9 @@ interface MapProps {
 }
 
 const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
-  const [landuse] = useState(new TileLayer({ visible: true }));
+  const [onset] = useState(new TileLayer({ visible: true }));
   const [highways] = useState(new TileLayer({ visible: false }));
   const [hidrography] = useState(new TileLayer({ visible: false }));
-
-  const [year, setYear] = useState(defaultYear);
 
   const [center] = useState([-45.2471, -12.4818]);
   const [zoom] = useState<number>(7);
@@ -53,7 +49,7 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
     new OlMap({
       controls: [],
       target: undefined,
-      layers: [osm, landuse, highways, hidrography],
+      layers: [osm, onset, highways, hidrography],
       view: view,
       interactions: defaults({
         keyboard: false,
@@ -79,11 +75,10 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
     serverType: 'mapserver',
   });
 
-  const landuse_source = new TileWMS({
-    url: wms.defaults.baseURL + 'landuseRegion.map',
+  const onset_source = new TileWMS({
+    url: wms.defaults.baseURL + 'onsetRegion.map',
     params: {
-      year: year,
-      LAYERS: 'landuse',
+      LAYERS: 'onset',
       TILED: true,
     },
     serverType: 'mapserver',
@@ -97,16 +92,9 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
   hidrography.setSource(hidrography_source);
   hidrography.getSource().refresh();
 
-  landuse.set('name', 'landuse');
-  landuse.setSource(landuse_source);
-  landuse.getSource().refresh();
-
-  const handleYear = useCallback(
-    y => {
-      setYear(y);
-    },
-    [setYear],
-  );
+  onset.set('name', 'onset');
+  onset.setSource(onset_source);
+  onset.getSource().refresh();
 
   useEffect(() => {
     map.setTarget('map');
@@ -114,17 +102,9 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
 
   return (
     <Container id="map">
-      <Menu
-        ishidden={false ? 1 : 0}
-        defaultCategory={defaultCategory}
-        defaultYear={year}
-        handleYear={handleYear}
-        map={map}
-      />
+      <Menu ishidden={false ? 1 : 0} map={map} />
 
-      <Popup map={map} source={landuse_source} />
-
-      <CardPlot year={year} />
+      <Popup map={map} source={onset_source} />
 
       <Footer id="footer" map={map} />
     </Container>

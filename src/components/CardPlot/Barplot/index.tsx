@@ -13,7 +13,7 @@ interface BarplotProps {
 }
 
 const Barplot: React.FC<BarplotProps> = ({ year, tableName }) => {
-  const [landuse, setData] = useState([]);
+  const [onset, setData] = useState([]);
 
   const [colors] = useState([
     '#004000',
@@ -42,7 +42,7 @@ const Barplot: React.FC<BarplotProps> = ({ year, tableName }) => {
   const data = [
     {
       x: xaxis,
-      y: landuse,
+      y: onset,
       stackgroup: 'one',
       type: 'bar',
       marker: { color: colors },
@@ -51,7 +51,7 @@ const Barplot: React.FC<BarplotProps> = ({ year, tableName }) => {
 
   const layout = {
     title: {
-      // text: '<b>Cobertura e uso do solo ' + year + '</b>',
+      // text: '<b>Cobertura e Início do período chuvoso ' + year + '</b>',
       font: {
         family: 'Arial, sans-serif',
         size: 14,

@@ -10,7 +10,7 @@
 
 # production
 /build
-/landuse
+/onset
 
 # misc
 .DS_Store

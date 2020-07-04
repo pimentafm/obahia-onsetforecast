@@ -10,6 +10,7 @@ import { createStringXY } from 'ol/coordinate';
 import { FiXCircle } from 'react-icons/fi';
 
 import { Container } from './styles';
+import HtmlParser from 'react-html-parser';
 
 interface PopupProps {
   map: OlMap;
@@ -18,7 +19,6 @@ interface PopupProps {
 
 const Popup: React.FC<PopupProps> = ({ map, source }) => {
   const [popcoords, setPopCoords] = useState<string>();
-  const [popclass, setPopClass] = useState<string>();
   const [popvalue, setPopValue] = useState<string>();
 
   const closePopUp = useCallback(() => {
@@ -30,25 +30,12 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
   }, []);
 
   const getData = useCallback((url, coordinate) => {
-    const luclasses = [
-      'Formações florestais',
-      'Formações savânicas',
-      'Formações campestres',
-      'Mosaico de agricultura ou pastagem',
-      'Agricultura de sequeiro',
-      'Agricultura irrigada',
-      'Pastagem',
-      `Corpos d'água`,
-      'Área urbana/Construções rurais',
-    ];
-
     fetch(url)
       .then(response => {
         return response.text();
       })
       .then(value => {
         setPopCoords(coordinate);
-        setPopClass(luclasses[parseInt(value) - 1]);
         setPopValue(value);
       });
   }, []);
@@ -118,15 +105,9 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
           </th>
         </tr>
         <tr style={{ background: '#fff' }}>
-          <td style={{ padding: `2px 5px` }}>Classe</td>
-          <td id="popup-lulc" style={{ padding: `2px 5px` }}>
-            {popclass ? popclass : 'Fora da camada'}
-          </td>
-        </tr>
-        <tr style={{ background: '#fff' }}>
-          <td style={{ padding: `2px 5px` }}>Valor</td>
+          <td style={{ padding: `2px 5px` }}>MAE</td>
           <td id="popup-value" style={{ padding: `2px 5px` }}>
-            {popvalue ? popvalue : 'Fora da camada'}
+            {popvalue ? HtmlParser('&plusmn;') + popvalue : 'Fora da camada'}
           </td>
         </tr>
         <tr style={{ background: '#fff' }}>
