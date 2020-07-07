@@ -36,10 +36,10 @@ const CardPlot: React.FC<CardProps> = ({ year }) => {
         </Tooltip>
       </div>
 
-      <label>Cobertura e Início do período chuvoso (1990 - 2018)</label>
+      <label>Cobertura e Início da estação chuvosa (1990 - 2018)</label>
       <StackPlot tableName="onset" />
 
-      <label>Cobertura e Início do período chuvoso {year}</label>
+      <label>Cobertura e Início da estação chuvosa {year}</label>
       <Barplot year={year} tableName="onset" />
     </Container>
   );

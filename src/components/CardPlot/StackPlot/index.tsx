@@ -145,7 +145,7 @@ const StackPlot: React.FC<StackPlotProps> = ({ tableName }) => {
   ];
   const layout = {
     title: {
-      //text: '<b>Cobertura e Início do período chuvoso (1990 - 2018)</b>',
+      //text: '<b>Cobertura e Início da estação chuvosa (1990 - 2018)</b>',
       font: {
         family: 'Arial, sans-serif',
         size: 14,

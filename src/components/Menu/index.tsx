@@ -24,20 +24,27 @@ interface MenuProps {
 
 const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
   const [hidden, setHidden] = useState(ishidden);
-  const [modal, setModal] = useState<boolean>(false);
+  const [termsOfUseModal, setTermsOfUseModal] = useState<boolean>(false);
+  const [metadataModal, setMetadataModal] = useState<boolean>(false);
 
   const [downloadURL, setDownloadURL] = useState('');
 
-  const showModal = () => {
-    setModal(true);
+  const showTermsOfUseModal = () => {
+    setTermsOfUseModal(true);
+  };
+
+  const showMetadataModal = () => {
+    setMetadataModal(true);
   };
 
   const handleOk = () => {
-    setModal(false);
+    setTermsOfUseModal(false);
+    setMetadataModal(false);
   };
 
   const handleCancel = () => {
-    setModal(false);
+    setTermsOfUseModal(false);
+    setMetadataModal(false);
   };
 
   const handleMenu = useCallback(() => {
@@ -91,8 +98,64 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
       <Content>
         <div className="card-menu">
-          <span>Previsão do início do período chuvoso</span>
+          <span>Previsão do Início da Estação Chuvosa</span>
         </div>
+
+        <div className="static-layers">
+          <label>
+            Data da previsão: <span>01/07/2019</span>
+          </label>
+          <label>
+            Próxima previsão: <span>01/09/2019</span>
+          </label>
+
+          <span className="span-text">
+            <label>Descrição:</label> Esta ferramenta permite a visualização
+            customizada da previsão do início das chuvas para o Oeste da Bahia ,
+            conforme previsto pelo sistema de previsão climática{' '}
+            <Tooltip
+              placement="right"
+              title="National Centers for Environmental Prediction - Coupled Forecast System Model version 2"
+            >
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://cfs.ncep.noaa.gov/"
+              >
+                {' '}
+                CSFv2
+              </a>
+            </Tooltip>
+            , do NCEP/NOAA. São apresentadas duas previsões anuais, uma em
+            01/08, e outra atualização em 01/09. Para ver a previsão para cada
+            localidade e o erro médio associado à previsão, clique no mapa ao
+            lado. Para mais informações clique em{' '}
+            <FaInfoCircle
+              className="text-icon"
+              style={{ fontSize: '12px', color: '#1f5582', cursor: 'pointer' }}
+              onClick={showMetadataModal}
+            />{' '}
+            abaixo. O uso dessas informações implica no aceite dos termos de uso
+            especificados em{' '}
+            <GoAlert
+              className="text-icon"
+              style={{ fontSize: '12px', color: '#1f5582', cursor: 'pointer' }}
+              onClick={showTermsOfUseModal}
+            />{' '}
+            abaixo.
+          </span>
+        </div>
+
+        <LayerSwitcher
+          name="onset"
+          label="Início da estação chuvosa"
+          handleLayerVisibility={handleLayerVisibility}
+          layerIsVisible={true}
+          legendIsVisible={true}
+          layerInfoIsVisible={true}
+          switchColor="#1f5582"
+          downloadURL={downloadURL}
+        />
 
         <div className="static-layers">
           <StaticLayerSwitcher
@@ -114,77 +177,29 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
             switchColor="#FABE57"
           />
         </div>
-
-        <div className="static-layers">
-          <label>
-            Data da simulação: <span>01/07/2020</span>
-          </label>
-
-          <label>
-            Próxima simulação: <span>01/09/2020</span>
-          </label>
-
-          <label>
-            Fonte:{' '}
-            <Tooltip
-              placement="right"
-              title="National Centers for Environmental Prediction - Coupled Forecast System Model version 2"
-            >
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://cfs.ncep.noaa.gov/"
-              >
-                {' '}
-                CSFv2
-              </a>
-            </Tooltip>
-          </label>
-
-          <span className="span-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-            dolore distinctio hic maiores mollitia labore accusantium eos sequi
-            sit facilis. Explicabo asperiores harum est optio officia nesciunt
-            dolores sequi facere
-          </span>
-        </div>
-
-        <LayerSwitcher
-          name="onset"
-          label="Início do período chuvoso"
-          handleLayerVisibility={handleLayerVisibility}
-          layerIsVisible={true}
-          legendIsVisible={true}
-          layerInfoIsVisible={true}
-          switchColor="#1f5582"
-          downloadURL={downloadURL}
-        />
       </Content>
 
       <Footer ishidden={hidden}>
-        <Tooltip placement="right" title="Sobre">
+        <Tooltip placement="right" title="Termos de uso">
           <GoAlert
-            id="about"
-            className="nav_icon"
+            className="footer_icon"
             style={{ fontSize: '20px', color: '#fff', cursor: 'pointer' }}
-            onClick={showModal}
+            onClick={showTermsOfUseModal}
           />
         </Tooltip>
-        <Tooltip placement="right" title="Sobre">
+        <Tooltip placement="right" title="Metadados">
           <FaInfoCircle
-            id="about"
-            className="nav_icon"
+            className="footer_icon"
             style={{ fontSize: '20px', color: '#fff', cursor: 'pointer' }}
-            onClick={() =>
-              window.open(`http://obahia.dea.ufv.br/about/`, '_blank')
-            }
+            onClick={showMetadataModal}
           />
         </Tooltip>
       </Footer>
 
       <Modal
         title="Obahia - Termos de uso"
-        visible={modal}
+        style={{ top: 20 }}
+        visible={termsOfUseModal}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
@@ -201,12 +216,103 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
           </Button>,
         ]}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <p style={{ textAlign: 'justify' }}>
+          O usuário assume todo o risco relacionado ao uso de informações nas
+          páginas Web deste servidor. A UFV fornece essas informações "como
+          estão", e a UFV se isenta de todas e quaisquer garantias, expressas ou
+          implícitas, incluindo (mas não se limitando a) quaisquer garantias
+          implícitas de adequação a uma finalidade específica. Em nenhum caso a
+          UFV será responsável perante usuários ou terceiros por quaisquer danos
+          diretos, indiretos, incidentais, conseqüenciais, especiais ou perda de
+          lucro resultante de qualquer uso ou uso indevido desses dados.
+        </p>
+      </Modal>
+
+      <Modal
+        title="Obahia - Termos de uso"
+        width={800}
+        style={{ top: 20 }}
+        visible={metadataModal}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={[
+          <Button
+            key="submit"
+            style={{
+              background: '#1f5582',
+              color: '#fff',
+              borderColor: '#fff',
+            }}
+            onClick={handleOk}
+          >
+            Continue
+          </Button>,
+        ]}
+      >
+        <p style={{ textAlign: 'justify' }}>
+          A versão 2 do Climate Forecast System foi desenvolvida no
+          Environmental Modeling Center do National Centers for Environmental
+          Prediction (NCEP). É um modelo totalmente acoplado que representa a
+          interação entre a atmosfera, oceanos, continentes e gelo marinho.
+          Tornou-se operacional no NCEP em abril de 2011. As previsões são
+          inicializadas diariamente, e produzem, para cada conjunto de
+          inicializações, previsões climáticas para um período de nove meses. As
+          previsões são geradas numa grade horizontal de 100 x 100 km, mas neste
+          trabalho interpolamos para uma grade horizontal de ¼° x ¼°. As
+          previsões usadas são de domínio público, e esta plataforma visa apenas
+          facilitar a sua visualização.
+        </p>
+        <p style={{ textAlign: 'justify' }}>
+          As previsões para o Oeste da Bahia foram avaliadas por Luiz Felipe
+          Sant´Anna Commar, em sua dissertação de MS em Meteorologia Aplicada na
+          Universidade Federal de Viçosa, defendida em julho de 2020. A partir
+          dos resultados desta dissertação, esta ferramenta web foi customizada
+          para apresentar os resultados de previsão do início da estação
+          chuvosa. Os resultados desta dissertação mostraram que a acurácia das
+          estimativas de previsão do início das chuvas pelo CFSv2 para esta
+          região dependem fortemente da data de inicialização das previsões,
+          sendo que com dois meses de antecedência a previsão apresenta um erro
+          médio absoluto (MAE) com 15 a 20 dias de diferença para os dados
+          observados. Por esta razão, na customização desta plaforma, foi
+          decidido apresentar resultados de previsões inicializadas em 01/08 e
+          01/09.
+        </p>
+        <p style={{ textAlign: 'justify' }}>
+          Ao se clicar no mapa, será obtido o valor da previsão em questão para
+          aquele pixel, e o erro médio (MAE) calculado no período 2011-2019 para
+          as previsões inicializadas na mesma data. Embora na maior parte dos
+          anos testados, o início das chuvas tenha efetivamente ocorrido dentro
+          do intervalo de MAE especificado, é possível que em alguns anos as
+          chuvas se iniciem foram do intervalo previsto. Em qualquer caso, as
+          previsões inicializadas em 1° de setembro devem ser mais precisas do
+          que as previsões inicializadas em 1° de agosto.
+        </p>
+        <p style={{ textAlign: 'justify' }}>
+          Os erros tendem a ser menores do lado leste (fronteira com Tocantins e
+          Goiás) do que do lado oeste da região (próximo ao rio São Francisco).
+          Além disso, nos anos de El Niño, o MAE é entre 2 e 8 dias maior do que
+          a média dos demais anos analisada.
+        </p>
+        <p style={{ textAlign: 'justify' }}>
+          Maiores detalhes sobre o sistema de previsão e a sua avaliação para a
+          região estão disponíveis em:
+        </p>
+        <p style={{ textAlign: 'justify' }}>
+          Saha, S. et al., 2014: The NCEP Climate Forecast System Version 2,
+          Journal of Climate, 27, 2185–2208. doi:
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="http://dx.doi.org/10.1175/JCLI-D-12-00823.1"
+          >
+            http://dx.doi.org/10.1175/JCLI-D-12-00823.1
+          </a>
+        </p>
+        <p style={{ textAlign: 'justify' }}>
+          Commar, L. F. S., 2020: Avaliação da previsão climática do início da
+          estação chuvosa no Oeste da Bahia. Dissertação de MS, Universidade
+          Federal de Viçosa, julho de 2020. Orientador: Marcos Heil Costa.
+        </p>
       </Modal>
     </Container>
   );

@@ -51,7 +51,7 @@ const Barplot: React.FC<BarplotProps> = ({ year, tableName }) => {
 
   const layout = {
     title: {
-      // text: '<b>Cobertura e Início do período chuvoso ' + year + '</b>',
+      // text: '<b>Cobertura e Início da estação chuvosa ' + year + '</b>',
       font: {
         family: 'Arial, sans-serif',
         size: 14,
