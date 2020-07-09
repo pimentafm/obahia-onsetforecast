@@ -176,6 +176,26 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
             layerInfoIsVisible={false}
             switchColor="#FABE57"
           />
+
+          <StaticLayerSwitcher
+            name="watersheds"
+            label="Bacias hidrográficas"
+            handleLayerVisibility={handleLayerVisibility}
+            layerIsVisible={false}
+            legendIsVisible={false}
+            layerInfoIsVisible={false}
+            switchColor="#000000"
+          />
+
+          <StaticLayerSwitcher
+            name="counties"
+            label="Municípios"
+            handleLayerVisibility={handleLayerVisibility}
+            layerIsVisible={false}
+            legendIsVisible={false}
+            layerInfoIsVisible={false}
+            switchColor="#696969"
+          />
         </div>
       </Content>
 
