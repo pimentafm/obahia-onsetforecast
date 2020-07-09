@@ -187,7 +187,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
             onClick={showTermsOfUseModal}
           />
         </Tooltip>
-        <Tooltip placement="right" title="Metadados">
+        <Tooltip placement="right" title="Informações adicionais">
           <FaInfoCircle
             className="footer_icon"
             style={{ fontSize: '20px', color: '#fff', cursor: 'pointer' }}
@@ -229,7 +229,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
       </Modal>
 
       <Modal
-        title="Obahia - Termos de uso"
+        title="Obahia - Informações adicionais"
         width={800}
         style={{ top: 20 }}
         visible={metadataModal}
