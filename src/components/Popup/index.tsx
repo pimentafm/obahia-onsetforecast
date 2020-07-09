@@ -107,7 +107,7 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
         <tr style={{ background: '#fff' }}>
           <td style={{ padding: `2px 5px` }}>MAE</td>
           <td id="popup-value" style={{ padding: `2px 5px` }}>
-            {popvalue ? HtmlParser('&plusmn;') + popvalue : 'Fora da camada'}
+            {popvalue ? HtmlParser(popvalue) : 'Fora da camada'}
           </td>
         </tr>
         <tr style={{ background: '#fff' }}>
