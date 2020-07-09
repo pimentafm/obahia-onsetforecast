@@ -295,7 +295,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
           região dependem fortemente da data de inicialização das previsões,
           sendo que com dois meses de antecedência a previsão apresenta um erro
           médio absoluto (MAE) com 15 a 20 dias de diferença para os dados
-          observados. Por esta razão, na customização desta plaforma, foi
+          observados. Por esta razão, na customização desta plataforma, foi
           decidido apresentar resultados de previsões inicializadas em 01/08 e
           01/09.
         </p>
