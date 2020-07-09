@@ -22,7 +22,9 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
         <GiStack
           className="text-icon"
           style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
-          //onClick={() => {}}
+          onClick={() =>
+            window.open('http://obahia.dea.ufv.br/temporal', '_self')
+          }
         />
       </Tooltip>
 
@@ -40,7 +42,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
         <GiNetworkBars
           className="text-icon"
           style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
-          //onClick={() => {}}
+          onClick={() => window.open('http://obahia.dea.ufv.br', '_self')}
         />
       </Tooltip>
 
@@ -51,7 +53,9 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
         <GiMeshBall
           className="text-icon"
           style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
-          //onClick={() => {}}
+          onClick={() =>
+            window.open('http://obahia.dea.ufv.br/mfview', '_self')
+          }
         />
       </Tooltip>
 
@@ -59,7 +63,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
         <GiPieChart
           className="text-icon"
           style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
-          //onClick={() => {}}
+          onClick={() => window.open('http://obahia.dea.ufv.br', '_self')}
         />
       </Tooltip>
     </Container>
