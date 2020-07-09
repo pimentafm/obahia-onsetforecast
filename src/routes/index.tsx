@@ -5,7 +5,7 @@ import Region from '../pages/Region';
 
 const Routes: React.FC = () => (
   <Switch>
-    <Route path="/onset" component={Region} />
+    <Route exact path="/" component={Region} />
   </Switch>
 );
 

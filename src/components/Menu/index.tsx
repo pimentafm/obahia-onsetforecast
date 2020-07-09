@@ -9,6 +9,7 @@ import { FiMenu } from 'react-icons/fi';
 import { FaInfoCircle } from 'react-icons/fa';
 import { GoAlert } from 'react-icons/go';
 
+import ToolsMenu from './ToolsMenu';
 import ZoomControl from './ZoomControl';
 import Scalebar from './ScaleBar';
 
@@ -74,6 +75,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
   return (
     <Container id="menu" ishidden={hidden}>
+      <ToolsMenu ishidden={hidden} />
       <ZoomControl ishidden={hidden} map={map} />
       <Scalebar id="scalebar" map={map} />
 
