@@ -38,7 +38,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
         />
       </Tooltip>
 
-      <Tooltip placement="bottomLeft" title="Estações telemétricas">
+      <Tooltip placement="bottomLeft" title="Previsão de vazões">
         <GiNetworkBars
           className="text-icon"
           style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}

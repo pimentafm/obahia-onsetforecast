@@ -40,7 +40,12 @@ export default createGlobalStyle`
   }
 
   .ant-tooltip-inner {
-    color: fff;
-    background-color: #1f5582;
+    color: #ffffff;
+    background-color: #1f5582f2;
   }
+
+  .ant-tooltip-arrow-content {
+    background-color: #1f5582f2;
+  }
+
 `;

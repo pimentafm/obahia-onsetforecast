@@ -152,15 +152,15 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
               className="text-icon"
               style={{ fontSize: '12px', color: '#1f5582', cursor: 'pointer' }}
               onClick={showMetadataModal}
-            />{' '}
-            abaixo. O uso dessas informações implica no aceite dos termos de uso
+            />
+            . O uso dessas informações implica no aceite dos termos de uso
             especificados em{' '}
             <GoAlert
               className="text-icon"
               style={{ fontSize: '12px', color: '#1f5582', cursor: 'pointer' }}
               onClick={showTermsOfUseModal}
-            />{' '}
-            abaixo.
+            />
+            .
           </span>
         </div>
 
