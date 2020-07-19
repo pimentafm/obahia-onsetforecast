@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 
 import { Modal, Tooltip, Button } from 'antd';
 
+import { format, getYear, getMonth, addMonths } from 'date-fns';
+
 import OlMap from 'ol/Map';
 
 import 'antd/dist/antd.css';
@@ -27,6 +29,9 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
   const [hidden, setHidden] = useState(ishidden);
   const [termsOfUseModal, setTermsOfUseModal] = useState<boolean>(false);
   const [metadataModal, setMetadataModal] = useState<boolean>(false);
+
+  const [forecastDate, setForecastDate] = useState(new Date(Date.now()));
+  const [jumpMonth, setJunpMonth] = useState<number>(2);
 
   const [downloadURL, setDownloadURL] = useState('');
 
@@ -71,6 +76,14 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
   useEffect(() => {
     setDownloadURL(`ftp://obahia.dea.ufv.br/landuse/`);
+    if (getMonth(Date.now()) <= 7) {
+      setForecastDate(new Date(getYear(Date.now()), 7, 1));
+      setJunpMonth(1);
+    }
+    if (getMonth(Date.now()) >= 8) {
+      setForecastDate(new Date(getYear(Date.now()), 8, 1));
+      setJunpMonth(10);
+    }
   }, []);
 
   return (
@@ -105,10 +118,13 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
         <div className="static-layers">
           <label>
-            Data da previsão: <span>01/07/2019</span>
+            Data da previsão: <span>{format(forecastDate, 'dd/MM/yyyy')}</span>
           </label>
           <label>
-            Próxima previsão: <span>01/09/2019</span>
+            Próxima previsão:{' '}
+            <span>
+              {format(addMonths(forecastDate, jumpMonth), 'dd/MM/yyyy')}
+            </span>
           </label>
 
           <span className="span-text">
