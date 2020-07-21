@@ -326,8 +326,8 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
           que as previsões inicializadas em 1° de agosto.
         </p>
         <p style={{ textAlign: 'justify' }}>
-          Os erros tendem a ser menores do lado leste (fronteira com Tocantins e
-          Goiás) do que do lado oeste da região (próximo ao rio São Francisco).
+          Os erros tendem a ser menores do lado oeste (fronteira com Tocantins e
+          Goiás) do que do lado leste da região (próximo ao rio São Francisco).
           Além disso, nos anos de El Niño, o MAE é entre 2 e 8 dias maior do que
           a média dos demais anos analisada.
         </p>
