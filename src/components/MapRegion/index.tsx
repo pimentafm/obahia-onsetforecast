@@ -30,7 +30,7 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
   const [onset] = useState(new TileLayer({ visible: true }));
   const [highways] = useState(new TileLayer({ visible: false }));
   const [hidrography] = useState(new TileLayer({ visible: false }));
-  const [watersheds] = useState(new TileLayer({ visible: false }));
+  const [watersheds] = useState(new TileLayer({ visible: true }));
   const [counties] = useState(new TileLayer({ visible: false }));
 
   const [center] = useState([-45.2471, -12.4818]);

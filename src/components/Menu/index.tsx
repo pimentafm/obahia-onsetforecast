@@ -199,7 +199,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
             name="watersheds"
             label="Bacias hidrográficas"
             handleLayerVisibility={handleLayerVisibility}
-            layerIsVisible={false}
+            layerIsVisible={true}
             legendIsVisible={false}
             layerInfoIsVisible={false}
             switchColor="#000000"
