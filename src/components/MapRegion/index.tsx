@@ -33,14 +33,14 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
   const [watersheds] = useState(new TileLayer({ visible: true }));
   const [counties] = useState(new TileLayer({ visible: false }));
 
-  const [center] = useState([-45.2471, -12.4818]);
+  const [center] = useState([-44.88167, -12.81417]);
   const [zoom] = useState<number>(7);
 
   const [view] = useState(
     new View({
       projection: 'EPSG:4326',
       center: center,
-      extent: [-52.0, -16.0, -38.0, -8.0],
+      extent: [-50.0, -16.0, -40.0, -10.2],
       zoom: zoom,
     }),
   );
