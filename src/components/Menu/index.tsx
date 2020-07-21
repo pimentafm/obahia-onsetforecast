@@ -192,7 +192,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
             layerIsVisible={false}
             legendIsVisible={false}
             layerInfoIsVisible={false}
-            switchColor="#FABE57"
+            switchColor="#800000"
           />
 
           <StaticLayerSwitcher
