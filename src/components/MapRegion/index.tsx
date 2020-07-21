@@ -40,7 +40,7 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
     new View({
       projection: 'EPSG:4326',
       center: center,
-      extent: [-56.0, -20.0, -33.0, -6.0],
+      extent: [-52.0, -16.0, -38.0, -8.0],
       zoom: zoom,
     }),
   );
