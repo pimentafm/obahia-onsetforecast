@@ -18,7 +18,7 @@ interface ToolsMenuProps {
 const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
   return (
     <Container ishidden={ishidden}>
-      <Tooltip placement="bottomLeft" title="Análise de séries temporais">
+      <Tooltip placement="bottomLeft" title="Séries temporais de mapas">
         <GiStack
           className="text-icon"
           style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
