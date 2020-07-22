@@ -42,7 +42,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
         <GiNetworkBars
           className="text-icon"
           style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
-          onClick={() => window.open('http://obahia.dea.ufv.br', '_self')}
+          onClick={() => window.open('http://obahia.dea.ufv.br/hidro', '_self')}
         />
       </Tooltip>
 
