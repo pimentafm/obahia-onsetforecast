@@ -82,6 +82,8 @@ export const Content = styled.div`
   padding: 5px;
   text-decoration: none;
 
+  overflow-y: auto;
+
   > label {
     padding-top: 5px;
   }
@@ -112,5 +114,9 @@ export const Content = styled.div`
 
   .span-text {
     text-align: justify;
+  }
+
+  .final-space {
+    padding-top: 30px;
   }
 `;

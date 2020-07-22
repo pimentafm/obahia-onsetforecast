@@ -225,6 +225,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
             switchColor="#696969"
           />
         </div>
+        <div className="final-space"></div>
       </Content>
 
       <Footer ishidden={hidden}>
