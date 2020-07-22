@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
+import HtmlParser from 'react-html-parser';
+
 import { Modal, Tooltip, Button } from 'antd';
 
 import { format, getYear, getMonth, addMonths } from 'date-fns';
@@ -34,6 +36,14 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
   const [jumpMonth, setJunpMonth] = useState<number>(2);
 
   const [downloadURL, setDownloadURL] = useState('');
+
+  const termsOfUse = HtmlParser(
+    `<span style="color: #1f5582; font-weight: 600; font-size: 16px;">OBahia</span><span> Previsão do Início da Estação Chuvosa - Termos de uso</span>`,
+  );
+
+  const additionalInformation = HtmlParser(
+    `<span style="color: #1f5582; font-weight: 600; font-size: 16px;">OBahia</span><span> Previsão do Início da Estação Chuvosa - Informações adicionais</span>`,
+  );
 
   const showTermsOfUseModal = () => {
     setTermsOfUseModal(true);
@@ -235,7 +245,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
       </Footer>
 
       <Modal
-        title="Obahia - Termos de uso"
+        title={termsOfUse}
         style={{ top: 20 }}
         visible={termsOfUseModal}
         onOk={handleOk}
@@ -267,7 +277,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
       </Modal>
 
       <Modal
-        title="Obahia - Informações adicionais"
+        title={additionalInformation}
         width={800}
         style={{ top: 20 }}
         visible={metadataModal}
