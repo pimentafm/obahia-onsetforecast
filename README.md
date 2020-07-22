@@ -38,7 +38,7 @@ As previsões para o Oeste da Bahia foram avaliadas por Luiz Felipe Sant´Anna C
 
 Ao se clicar no mapa, será obtido o valor da previsão em questão para aquele pixel, e o erro médio (MAE) calculado no período 2011-2019 para as previsões inicializadas na mesma data. Embora na maior parte dos anos testados, o início das chuvas tenha efetivamente ocorrido dentro do intervalo de MAE especificado, é possível que em alguns anos as chuvas se iniciem foram do intervalo previsto. Em qualquer caso, as previsões inicializadas em 1° de setembro devem ser mais precisas do que as previsões inicializadas em 1° de agosto.
 
-Os erros tendem a ser menores do lado leste (fronteira com Tocantins e Goiás) do que do lado oeste da região (próximo ao rio São Francisco). Além disso, nos anos de El Niño, o MAE é entre 2 e 8 dias maior do que a média dos demais anos analisada.
+Os erros tendem a ser menores do lado oeste (fronteira com Tocantins e Goiás) do que do lado leste da região (próximo ao rio São Francisco). Além disso, nos anos de El Niño, o MAE é entre 2 e 8 dias maior do que a média dos demais anos analisada.
 
 Maiores detalhes sobre o sistema de previsão e a sua avaliação para a região estão disponíveis em:
 
@@ -51,6 +51,6 @@ Commar, L. F. S., 2020: Avaliação da previsão climática do início da estaç
 <div align="justify">
 O usuário assume todo o risco relacionado ao uso de informações nas páginas Web deste servidor. A UFV fornece essas informações "como estão", e a UFV se isenta de todas e quaisquer garantias, expressas ou implícitas, incluindo (mas não se limitando a) quaisquer garantias implícitas de adequação a uma finalidade específica. Em nenhum caso a UFV será responsável perante usuários ou terceiros por quaisquer danos diretos, indiretos, incidentais, conseqüenciais, especiais ou perda de lucro resultante de qualquer uso ou uso indevido desses dados.
 </div>
-
+<br>
 Fernando Pimenta [My Github!](https://github.com/pimentafm) :bird: :sunglasses:
 
