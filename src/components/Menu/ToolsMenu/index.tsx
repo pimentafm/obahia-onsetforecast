@@ -23,7 +23,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
           className="text-icon"
           style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
           onClick={() =>
-            window.open('http://obahia.dea.ufv.br/temporal', '_self')
+            window.open('http://corrente.dea.ufv.br/landuse', '_self')
           }
         />
       </Tooltip>
@@ -42,7 +42,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
         <GiNetworkBars
           className="text-icon"
           style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
-          onClick={() => window.open('http://obahia.dea.ufv.br/hidro', '_self')}
+          onClick={() => window.open('http://corrente.dea.ufv.br/hidro', '_self')}
         />
       </Tooltip>
 
@@ -54,7 +54,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
           className="text-icon"
           style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
           onClick={() =>
-            window.open('http://obahia.dea.ufv.br/mfview', '_self')
+            window.open('http://corrente.dea.ufv.br/mfview', '_self')
           }
         />
       </Tooltip>
@@ -63,7 +63,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
         <GiPieChart
           className="text-icon"
           style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
-          onClick={() => window.open('http://obahia.dea.ufv.br', '_self')}
+          onClick={() => window.open('http://corrente.dea.ufv.br', '_self')}
         />
       </Tooltip>
     </Container>
