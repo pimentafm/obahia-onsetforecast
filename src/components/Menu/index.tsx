@@ -143,7 +143,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
             conforme previsto pelo sistema de previsão climática{' '}
             <Popover
               placement="right"
-              content="National Centers for Environmental Prediction - Coupled Forecast System Model version 2"
+              content="Coupled Forecast System Model version 2"
             >
               <a
                 target="_blank"
@@ -151,7 +151,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
                 href="https://cfs.ncep.noaa.gov/"
               >
                 {' '}
-                CSFv2
+                CFSv2
               </a>
             </Popover>
             , do NCEP/NOAA. São apresentadas duas previsões anuais, uma em
@@ -267,13 +267,14 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
       >
         <p style={{ textAlign: 'justify' }}>
           O usuário assume todo o risco relacionado ao uso de informações nas
-          páginas Web deste servidor. A UFV fornece essas informações "como
-          estão", e a UFV se isenta de todas e quaisquer garantias, expressas ou
-          implícitas, incluindo (mas não se limitando a) quaisquer garantias
-          implícitas de adequação a uma finalidade específica. Em nenhum caso a
-          UFV será responsável perante usuários ou terceiros por quaisquer danos
-          diretos, indiretos, incidentais, conseqüenciais, especiais ou perda de
-          lucro resultante de qualquer uso ou uso indevido desses dados.
+          páginas Web desta plataforma. A UFV fornece essas informações da
+          maneira como estão apresentadas, e a UFV se isenta de todas e
+          quaisquer garantias, expressas ou implícitas, incluindo (mas não se
+          limitando a) quaisquer garantias implícitas de adequação a uma
+          finalidade específica. Em nenhum caso a UFV será responsável perante
+          usuários ou terceiros por quaisquer danos diretos, indiretos,
+          incidentais, conseqüenciais, especiais ou perda de lucro resultante de
+          qualquer uso ou uso indevido desses dados.
         </p>
       </Modal>
 
@@ -307,7 +308,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
           inicializadas diariamente, e produzem, para cada conjunto de
           inicializações, previsões climáticas para um período de nove meses. As
           previsões são geradas numa grade horizontal de 100 x 100 km, mas neste
-          trabalho interpolamos para uma grade horizontal de ¼° x ¼°. As
+          trabalho interpolamos para uma grade horizontal de 28 x 28 km. As
           previsões usadas são de domínio público, e esta plataforma visa apenas
           facilitar a sua visualização.
         </p>
