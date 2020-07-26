@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 
 import HtmlParser from 'react-html-parser';
 
-import { Modal, Tooltip, Button } from 'antd';
+import { Modal, Popover, Button } from 'antd';
 
 import { format, getYear, getMonth, addMonths } from 'date-fns';
 
@@ -110,7 +110,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
           />
         </a>
 
-        <Tooltip placement="right" title="Esconde/Mostra menu">
+        <Popover placement="right" content="Esconde/Mostra menu">
           <FiMenu
             id="handleMenu"
             type="menu"
@@ -118,7 +118,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
             style={{ fontSize: '20px', color: '#000' }}
             onClick={handleMenu}
           />
-        </Tooltip>
+        </Popover>
       </Header>
 
       <Content>
@@ -141,9 +141,9 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
             <label>Descrição:</label> Esta ferramenta permite a visualização
             customizada da previsão do início das chuvas para o Oeste da Bahia ,
             conforme previsto pelo sistema de previsão climática{' '}
-            <Tooltip
+            <Popover
               placement="right"
-              title="National Centers for Environmental Prediction - Coupled Forecast System Model version 2"
+              content="National Centers for Environmental Prediction - Coupled Forecast System Model version 2"
             >
               <a
                 target="_blank"
@@ -153,7 +153,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
                 {' '}
                 CSFv2
               </a>
-            </Tooltip>
+            </Popover>
             , do NCEP/NOAA. São apresentadas duas previsões anuais, uma em
             01/08, e outra atualização em 01/09. Para ver a previsão para cada
             localidade e o erro médio associado à previsão, clique no mapa ao
@@ -229,20 +229,20 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
       </Content>
 
       <Footer ishidden={hidden}>
-        <Tooltip placement="right" title="Termos de uso">
+        <Popover placement="right" content="Termos de uso">
           <GoAlert
             className="footer_icon"
             style={{ fontSize: '20px', color: '#fff', cursor: 'pointer' }}
             onClick={showTermsOfUseModal}
           />
-        </Tooltip>
-        <Tooltip placement="right" title="Informações adicionais">
+        </Popover>
+        <Popover placement="right" content="Informações adicionais">
           <FaInfoCircle
             className="footer_icon"
             style={{ fontSize: '20px', color: '#fff', cursor: 'pointer' }}
             onClick={showMetadataModal}
           />
-        </Tooltip>
+        </Popover>
       </Footer>
 
       <Modal
