@@ -84,6 +84,17 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
     [map],
   );
 
+  const handleLayerOpacity = useCallback(
+    (opacity, lyr_name) => {
+      map.getLayers().forEach(lyr => {
+        if (lyr.get('name') === lyr_name) {
+          lyr.setOpacity(opacity);
+        }
+      });
+    },
+    [map],
+  );
+
   useEffect(() => {
     setDownloadURL(`ftp://obahia.dea.ufv.br/landuse/`);
     if (getMonth(Date.now()) <= 7) {
@@ -177,6 +188,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
         <LayerSwitcher
           name="onset"
           label="Início da estação chuvosa"
+          handleLayerOpacity={handleLayerOpacity}
           handleLayerVisibility={handleLayerVisibility}
           layerIsVisible={true}
           legendIsVisible={true}
