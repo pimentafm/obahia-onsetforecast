@@ -39,6 +39,7 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
   const [view] = useState(
     new View({
       projection: 'EPSG:4326',
+      maxZoom: 12,
       center: center,
       extent: [-50.0, -16.0, -40.0, -10.2],
       zoom: zoom,
