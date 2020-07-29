@@ -33,7 +33,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
   const [metadataModal, setMetadataModal] = useState<boolean>(false);
 
   const [forecastDate, setForecastDate] = useState(new Date(Date.now()));
-  const [jumpMonth, setJunpMonth] = useState<number>(2);
+  const [jumpMonth, setJunpMonth] = useState<number>(1);
 
   const [downloadURL, setDownloadURL] = useState('');
 
@@ -138,16 +138,6 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
         </div>
 
         <div className="static-layers">
-          <label>
-            Data da previsão: <span>{format(forecastDate, 'dd/MM/yyyy')}</span>
-          </label>
-          <label>
-            Próxima previsão:{' '}
-            <span>
-              {format(addMonths(forecastDate, jumpMonth), 'dd/MM/yyyy')}
-            </span>
-          </label>
-
           <span className="span-text">
             <label>Descrição:</label> Esta ferramenta permite a visualização
             customizada da previsão do início das chuvas para o Oeste da Bahia ,
@@ -187,10 +177,22 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
         <LayerSwitcher
           name="onset"
-          label="Início da estação chuvosa"
+          label={`Previsão: ${format(forecastDate, 'dd/MM/yyyy')}`}
           handleLayerOpacity={handleLayerOpacity}
           handleLayerVisibility={handleLayerVisibility}
           layerIsVisible={true}
+          legendIsVisible={true}
+          layerInfoIsVisible={true}
+          switchColor="#1f5582"
+          downloadURL={downloadURL}
+        />
+
+        <LayerSwitcher
+          name="onset"
+          label={`Previsão: ${format(addMonths(forecastDate, jumpMonth), 'dd/MM/yyyy')}`}
+          handleLayerOpacity={handleLayerOpacity}
+          handleLayerVisibility={handleLayerVisibility}
+          layerIsVisible={false}
           legendIsVisible={true}
           layerInfoIsVisible={true}
           switchColor="#1f5582"
