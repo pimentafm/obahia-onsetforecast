@@ -131,7 +131,7 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
 
   return (
     <Container id="map">
-      <Menu ishidden={false ? 1 : 0} map={map} />
+      <Menu ishidden={window.innerWidth <= 760 ? 1 : 0} map={map} />
 
       <Popup map={map} source={onset_source} />
 
