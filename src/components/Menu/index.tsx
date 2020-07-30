@@ -140,7 +140,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
         <div className="static-layers">
           <span className="span-text">
             <label>Descrição:</label> Esta ferramenta permite a visualização
-            customizada da previsão do início das chuvas para o Oeste da Bahia ,
+            customizada da previsão do início das chuvas para o Oeste da Bahia,
             conforme previsto pelo sistema de previsão climática{' '}
             <Popover
               placement="right"
