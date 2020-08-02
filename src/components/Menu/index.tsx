@@ -4,7 +4,7 @@ import HtmlParser from 'react-html-parser';
 
 import { Modal, Popover, Button } from 'antd';
 
-import { format, getYear, getMonth, addMonths } from 'date-fns';
+import { format, getYear, getMonth, sub } from 'date-fns';
 
 import OlMap from 'ol/Map';
 
@@ -32,8 +32,8 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
   const [termsOfUseModal, setTermsOfUseModal] = useState<boolean>(false);
   const [metadataModal, setMetadataModal] = useState<boolean>(false);
 
-  const [forecastDate, setForecastDate] = useState(new Date(Date.now()));
-  const [jumpMonth, setJunpMonth] = useState<number>(1);
+  const [forecastDate0, setForecastDate0] = useState(new Date(Date.now()));
+  const [forecastDate1, setForecastDate1] = useState(new Date(Date.now()));
 
   const [downloadURL, setDownloadURL] = useState('');
 
@@ -97,13 +97,15 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
   useEffect(() => {
     setDownloadURL(`ftp://obahia.dea.ufv.br/landuse/`);
-    if (getMonth(Date.now()) <= 7) {
-      setForecastDate(new Date(getYear(Date.now()), 7, 1));
-      setJunpMonth(1);
-    }
-    if (getMonth(Date.now()) >= 8) {
-      setForecastDate(new Date(getYear(Date.now()), 8, 1));
-      setJunpMonth(10);
+    if (getMonth(Date.now()) < 7) {
+      setForecastDate0(sub(new Date(getYear(Date.now()), 7, 1), { years: 1 }));
+      setForecastDate1(sub(new Date(getYear(Date.now()), 8, 1), { years: 1 }));
+    } else if (getMonth(Date.now()) < 8) {
+      setForecastDate0(new Date(getYear(Date.now()), 7, 1));
+      setForecastDate1(sub(new Date(getYear(Date.now()), 8, 1), { years: 1 }));
+    } else {
+      setForecastDate0(new Date(getYear(Date.now()), 7, 1));
+      setForecastDate1(new Date(getYear(Date.now()), 8, 1));
     }
   }, []);
 
@@ -177,7 +179,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
         <LayerSwitcher
           name="onset"
-          label={`Previsão: ${format(forecastDate, 'dd/MM/yyyy')}`}
+          label={`Previsão: ${format(forecastDate0, 'dd/MM/yyyy')}`}
           handleLayerOpacity={handleLayerOpacity}
           handleLayerVisibility={handleLayerVisibility}
           layerIsVisible={true}
@@ -189,7 +191,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
         <LayerSwitcher
           name="onset"
-          label={`Previsão: ${format(addMonths(forecastDate, jumpMonth), 'dd/MM/yyyy')}`}
+          label={`Previsão: ${format(forecastDate1, 'dd/MM/yyyy')}`}
           handleLayerOpacity={handleLayerOpacity}
           handleLayerVisibility={handleLayerVisibility}
           layerIsVisible={false}
