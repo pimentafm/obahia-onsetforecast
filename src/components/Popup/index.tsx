@@ -14,12 +14,13 @@ import HtmlParser from 'react-html-parser';
 
 interface PopupProps {
   map: OlMap;
-  source: TileWMS;
+  source: Array<TileWMS>;
 }
 
 const Popup: React.FC<PopupProps> = ({ map, source }) => {
+  const [onset0108, setOnset0108] = useState<string>();
+  const [onset0109, setOnset0109] = useState<string>();
   const [popcoords, setPopCoords] = useState<string>();
-  const [popvalue, setPopValue] = useState<string>();
 
   const closePopUp = useCallback(() => {
     const element: HTMLElement = document.getElementById(
@@ -29,14 +30,17 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
     element.style.display = 'none';
   }, []);
 
-  const getData = useCallback((url, coordinate) => {
+  const getData = useCallback((url, type) => {
     fetch(url)
       .then(response => {
         return response.text();
       })
       .then(value => {
-        setPopCoords(coordinate);
-        setPopValue(value);
+        if (type === 'onset0108'){
+          setOnset0108(value);
+        } else {
+          setOnset0109(value);
+        } 
       });
   }, []);
 
@@ -47,12 +51,15 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
 
       const stringifyFunc = createStringXY(5);
 
-      let url = source.getFeatureInfoUrl(evt.coordinate, res, proj, {
+      let urls = source.map(source => source.getFeatureInfoUrl(evt.coordinate, res, proj, {
         INFO_FORMAT: 'text/html',
         VERSION: '1.3.0',
-      });
+      }));
 
-      getData(url, stringifyFunc(evt.coordinate));
+      getData(urls[0], 'onset0108');
+      getData(urls[1], 'onset0109');
+
+      setPopCoords(stringifyFunc(evt.coordinate));
 
       const element: HTMLElement = document.getElementById(
         'popup-class',
@@ -105,9 +112,15 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
           </th>
         </tr>
         <tr style={{ background: '#fff' }}>
-          <td style={{ padding: `2px 5px` }}>MAE</td>
+          <td style={{ padding: `2px 5px` }}>MAE-01/08</td>
           <td id="popup-value" style={{ padding: `2px 5px` }}>
-            {popvalue ? HtmlParser(popvalue) : 'Fora da camada'}
+            {onset0108 ? `Inicio entre ${HtmlParser(onset0108)}` : 'Fora da camada'}
+          </td>
+        </tr>
+        <tr style={{ background: '#fff' }}>
+          <td style={{ padding: `2px 5px` }}>MAE-01/09</td>
+          <td id="popup-value" style={{ padding: `2px 5px` }}>
+            {onset0109 ? `Inicio entre ${HtmlParser(onset0109)}` : 'Fora da camada'}
           </td>
         </tr>
         <tr style={{ background: '#fff' }}>

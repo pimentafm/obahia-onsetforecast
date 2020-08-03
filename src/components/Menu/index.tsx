@@ -178,7 +178,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
         </div>
 
         <LayerSwitcher
-          name="onset"
+          name="onset0108"
           label={`Previsão: ${format(forecastDate0, 'dd/MM/yyyy')}`}
           handleLayerOpacity={handleLayerOpacity}
           handleLayerVisibility={handleLayerVisibility}
@@ -190,7 +190,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
         />
 
         <LayerSwitcher
-          name="onset"
+          name="onset0109"
           label={`Previsão: ${format(forecastDate1, 'dd/MM/yyyy')}`}
           handleLayerOpacity={handleLayerOpacity}
           handleLayerVisibility={handleLayerVisibility}
