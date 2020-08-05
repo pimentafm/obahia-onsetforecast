@@ -27,8 +27,7 @@ interface MapProps {
 }
 
 const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
-  const [onset0108] = useState(new TileLayer({ visible: true }));
-  const [onset0109] = useState(new TileLayer({ visible: false }));
+  const [onset] = useState(new TileLayer({ visible: true }));
   const [highways] = useState(new TileLayer({ visible: false }));
   const [hidrography] = useState(new TileLayer({ visible: false }));
   const [watersheds] = useState(new TileLayer({ visible: true }));
@@ -53,7 +52,7 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
     new OlMap({
       controls: [],
       target: undefined,
-      layers: [osm, onset0109, onset0108, watersheds, counties, highways, hidrography],
+      layers: [osm, onset, watersheds, counties, highways, hidrography],
       view: view,
       interactions: defaults({
         keyboard: false,
@@ -97,17 +96,8 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
     serverType: 'mapserver',
   });
 
-  const onset0108_source = new TileWMS({
-    url: wms.defaults.baseURL + 'onset0108.map',
-    params: {
-      LAYERS: 'onset',
-      TILED: true,
-    },
-    serverType: 'mapserver',
-  });
-
-  const onset0109_source = new TileWMS({
-    url: wms.defaults.baseURL + 'onset0109.map',
+  const onset_source = new TileWMS({
+    url: wms.defaults.baseURL + 'onsetRegion.map',
     params: {
       LAYERS: 'onset',
       TILED: true,
@@ -131,13 +121,9 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
   hidrography.setSource(hidrography_source);
   hidrography.getSource().refresh();
 
-  onset0108.set('name', 'onset0108');
-  onset0108.setSource(onset0108_source);
-  onset0108.getSource().refresh();
-
-  onset0109.set('name', 'onset0109');
-  onset0109.setSource(onset0109_source);
-  onset0109.getSource().refresh();
+  onset.set('name', 'onset');
+  onset.setSource(onset_source);
+  onset.getSource().refresh();
 
   useEffect(() => {
     map.setTarget('map');
@@ -147,7 +133,7 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
     <Container id="map">
       <Menu ishidden={window.innerWidth <= 760 ? 1 : 0} map={map} />
 
-      <Popup map={map} source={[onset0108_source, onset0109_source]} />
+      <Popup map={map} source={[onset_source]} />
 
       <Footer id="footer" map={map} />
     </Container>

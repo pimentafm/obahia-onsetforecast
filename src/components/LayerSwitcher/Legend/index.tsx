@@ -15,7 +15,7 @@ const Legend: React.FC<LegendProps> = ({ name, isvisible }) => {
 
   useEffect(() => {
     wms
-      .get(name + `.map&mode=legend`, {
+      .get(name + `Region.map&mode=legend`, {
         responseType: 'text',
       })
       .then(res => {

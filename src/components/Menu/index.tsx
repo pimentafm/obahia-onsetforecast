@@ -32,8 +32,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
   const [termsOfUseModal, setTermsOfUseModal] = useState<boolean>(false);
   const [metadataModal, setMetadataModal] = useState<boolean>(false);
 
-  const [forecastDate0, setForecastDate0] = useState(new Date(Date.now()));
-  const [forecastDate1, setForecastDate1] = useState(new Date(Date.now()));
+  const [forecastDate, setForecastDate] = useState(new Date(Date.now()));
 
   const [downloadURL, setDownloadURL] = useState('');
 
@@ -97,15 +96,10 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
   useEffect(() => {
     setDownloadURL(`ftp://obahia.dea.ufv.br/landuse/`);
-    if (getMonth(Date.now()) < 7) {
-      setForecastDate0(sub(new Date(getYear(Date.now()), 7, 1), { years: 1 }));
-      setForecastDate1(sub(new Date(getYear(Date.now()), 8, 1), { years: 1 }));
-    } else if (getMonth(Date.now()) < 8) {
-      setForecastDate0(new Date(getYear(Date.now()), 7, 1));
-      setForecastDate1(sub(new Date(getYear(Date.now()), 8, 1), { years: 1 }));
+    if (getMonth(Date.now()) <= 7) {
+      setForecastDate(sub(new Date(getYear(Date.now()), 7, 1), { years: 1 }));
     } else {
-      setForecastDate0(new Date(getYear(Date.now()), 7, 1));
-      setForecastDate1(new Date(getYear(Date.now()), 8, 1));
+      setForecastDate(sub(new Date(getYear(Date.now()), 8, 1), { years: 1 }));
     }
   }, []);
 
@@ -178,23 +172,11 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
         </div>
 
         <LayerSwitcher
-          name="onset0108"
-          label={`Previsão: ${format(forecastDate0, 'dd/MM/yyyy')}`}
+          name="onset"
+          label={`Previsão: ${format(forecastDate, 'dd/MM/yyyy')}`}
           handleLayerOpacity={handleLayerOpacity}
           handleLayerVisibility={handleLayerVisibility}
           layerIsVisible={true}
-          legendIsVisible={true}
-          layerInfoIsVisible={true}
-          switchColor="#1f5582"
-          downloadURL={downloadURL}
-        />
-
-        <LayerSwitcher
-          name="onset0109"
-          label={`Previsão: ${format(forecastDate1, 'dd/MM/yyyy')}`}
-          handleLayerOpacity={handleLayerOpacity}
-          handleLayerVisibility={handleLayerVisibility}
-          layerIsVisible={false}
           legendIsVisible={true}
           layerInfoIsVisible={true}
           switchColor="#1f5582"
