@@ -18,8 +18,7 @@ interface PopupProps {
 }
 
 const Popup: React.FC<PopupProps> = ({ map, source }) => {
-  const [onset0108, setOnset0108] = useState<string>();
-  const [onset0109, setOnset0109] = useState<string>();
+  const [onset, setOnset] = useState<string>();
   const [popcoords, setPopCoords] = useState<string>();
 
   const closePopUp = useCallback(() => {
@@ -30,17 +29,13 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
     element.style.display = 'none';
   }, []);
 
-  const getData = useCallback((url, type) => {
+  const getData = useCallback((url) => {
     fetch(url)
       .then(response => {
         return response.text();
       })
       .then(value => {
-        if (type === 'onset0108'){
-          setOnset0108(value);
-        } else {
-          setOnset0109(value);
-        } 
+          setOnset(value);
       });
   }, []);
 
@@ -56,8 +51,7 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
         VERSION: '1.3.0',
       }));
 
-      getData(urls[0], 'onset0108');
-      getData(urls[1], 'onset0109');
+      getData(urls);
 
       setPopCoords(stringifyFunc(evt.coordinate));
 
@@ -112,15 +106,9 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
           </th>
         </tr>
         <tr style={{ background: '#fff' }}>
-          <td style={{ padding: `2px 5px` }}>MAE-01/08</td>
+          <td style={{ padding: `2px 5px` }}>MAE</td>
           <td id="popup-value" style={{ padding: `2px 5px` }}>
-            {onset0108 ? `Inicio entre ${HtmlParser(onset0108)}` : 'Fora da camada'}
-          </td>
-        </tr>
-        <tr style={{ background: '#fff' }}>
-          <td style={{ padding: `2px 5px` }}>MAE-01/09</td>
-          <td id="popup-value" style={{ padding: `2px 5px` }}>
-            {onset0109 ? `Inicio entre ${HtmlParser(onset0109)}` : 'Fora da camada'}
+            {onset ? `Inicio entre ${HtmlParser(onset)}` : 'Fora da camada'}
           </td>
         </tr>
         <tr style={{ background: '#fff' }}>
