@@ -177,8 +177,8 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
               >
                 CFSv2
               </a>
-            </Popover>
-            . {t('description_end')}{' '}
+            </Popover>{' '}
+            {t('description_end')}{' '}
             <FaInfoCircle
               className="text-icon"
               style={{ fontSize: '12px', color: '#1f5582', cursor: 'pointer' }}

@@ -1,8 +1,8 @@
 {
   "appname": "Rainy Season Onset Forecast",
   "description_title": "Description",
-  "description_start": "This tool allows the customized visualization of the onset forecast of the rains for the West of Bahia, as foreseen by the NCEP/NOAA climate forecast system",
-  "description_end": "Two annual forecasts are presented, one on 08/01, and another update on 09/01. To see the forecast for each location and the average error associated with the forecast, click on the map beside. For more information click on",
+  "description_start": "This tool allows the customized visualization of the onset forecast of the rains for the West of Bahia, as foreseen by climate forecast system",
+  "description_end": "from NCEP/NOAA. Two annual forecasts are presented, one on 08/01, and another update on 09/01. To see the forecast for each location and the average error associated with the forecast, click on the map beside. For more information click on",
   "description_terms": "The use of this information implies acceptance of the terms of use specified in",
   "label_forecast": "Forecast",
   "label_hidrography": "Hidrography",

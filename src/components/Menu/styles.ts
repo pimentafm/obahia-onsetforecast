@@ -52,7 +52,7 @@ export const Header = styled.div<ContainerProps>`
 export const Footer = styled.div<ContainerProps>`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   position: absolute;
   bottom: 0;
@@ -111,7 +111,8 @@ export const Content = styled.div`
   }
 
   .locale-button:hover {
-    color: #1f5582;
+    transition: color 0.3s ease;
+    color: ${lighten(0, '#1f5582')};
   }
 
   .static-layers {
