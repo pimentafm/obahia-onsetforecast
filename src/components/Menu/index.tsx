@@ -31,6 +31,7 @@ interface MenuProps {
 
 const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
   const { t } = useTranslation();
+  document.title = t('appname');
 
   const [hidden, setHidden] = useState(ishidden);
   const [termsOfUseModal, setTermsOfUseModal] = useState<boolean>(false);
@@ -103,7 +104,6 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
   );
 
   useEffect(() => {
-    document.title = t('appname');
     setDownloadURL(`ftp://obahia.dea.ufv.br/landuse/`);
     if (getMonth(Date.now()) <= 7) {
       setForecastDate(sub(new Date(getYear(Date.now()), 7, 1), { years: 1 }));
