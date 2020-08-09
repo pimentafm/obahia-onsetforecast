@@ -22,12 +22,16 @@ import LayerSwitcher from '../LayerSwitcher';
 
 import { Container, Header, Footer, Content } from './styles';
 
+import { useTranslation } from 'react-i18next';
+
 interface MenuProps {
   ishidden: number;
   map: OlMap;
 }
 
 const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
+  const { t } = useTranslation();
+
   const [hidden, setHidden] = useState(ishidden);
   const [termsOfUseModal, setTermsOfUseModal] = useState<boolean>(false);
   const [metadataModal, setMetadataModal] = useState<boolean>(false);
@@ -130,14 +134,14 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
       <Content>
         <div className="card-menu">
-          <span>Previsão do Início da Estação Chuvosa</span>
+          <span>{t('appname')}</span>
         </div>
 
         <div className="static-layers">
           <span className="span-text">
-            <label>Descrição:</label> Esta ferramenta permite a visualização
-            customizada da previsão do início das chuvas para o Oeste da Bahia,
-            conforme previsto pelo sistema de previsão climática{' '}
+            <label>{t('description_title')}:</label> Esta ferramenta permite a
+            visualização customizada da previsão do início das chuvas para o
+            Oeste da Bahia, conforme previsto pelo sistema de previsão climática{' '}
             <Popover
               placement="right"
               content="Coupled Forecast System Model version 2"
