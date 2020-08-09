@@ -103,6 +103,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
   );
 
   useEffect(() => {
+    document.title = t('appname');
     setDownloadURL(`ftp://obahia.dea.ufv.br/landuse/`);
     if (getMonth(Date.now()) <= 7) {
       setForecastDate(sub(new Date(getYear(Date.now()), 7, 1), { years: 1 }));
