@@ -52,7 +52,7 @@ export const Header = styled.div<ContainerProps>`
 export const Footer = styled.div<ContainerProps>`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   position: absolute;
   bottom: 0;
@@ -100,6 +100,18 @@ export const Content = styled.div`
       font-weight: 500;
       color: #1f5582;
     }
+  }
+
+  .locale-button {
+    font-weight: 500;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .locale-button:hover {
+    color: #1f5582;
   }
 
   .static-layers {

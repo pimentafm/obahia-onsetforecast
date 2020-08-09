@@ -23,6 +23,7 @@ import LayerSwitcher from '../LayerSwitcher';
 import { Container, Header, Footer, Content } from './styles';
 
 import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 
 interface MenuProps {
   ishidden: number;
@@ -103,6 +104,10 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
     [map],
   );
 
+  const changeLanguage = useCallback(locale => {
+    i18n.changeLanguage(locale);
+  }, []);
+
   useEffect(() => {
     setDownloadURL(`ftp://obahia.dea.ufv.br/landuse/`);
     if (getMonth(Date.now()) <= 7) {
@@ -140,6 +145,22 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
       <Content>
         <div className="card-menu">
           <span>{t('appname')}</span>
+        </div>
+
+        <div>
+          <button
+            className="locale-button"
+            onClick={() => changeLanguage('pt')}
+          >
+            PT-BR
+          </button>{' '}
+          |{' '}
+          <button
+            className="locale-button"
+            onClick={() => changeLanguage('en')}
+          >
+            EN
+          </button>
         </div>
 
         <div className="static-layers">
