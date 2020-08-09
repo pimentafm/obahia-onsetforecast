@@ -1,4 +1,26 @@
 {
   "appname": "Rainy Season Onset Forecast",
-  "description_title": "Description"
+  "description_title": "Description",
+  "description_start": "This tool allows the customized visualization of the onset forecast of the rains for the West of Bahia, as foreseen by the NCEP/NOAA climate forecast system",
+  "description_end": "Two annual forecasts are presented, one on 08/01, and another update on 09/01. To see the forecast for each location and the average error associated with the forecast, click on the map beside. For more information click on",
+  "description_terms": "The use of this information implies acceptance of the terms of use specified in",
+  "label_forecast": "Forecast",
+  "label_hidrography": "Hidrography",
+  "label_highways": "Highways",
+  "label_watersheds": "Watersheds",
+  "label_municipalities": "Municipalities",
+  "tooltip_menu": "Hide/Show menu",
+  "tooltip_download": "Download layer",
+  "tooltip_info": "Aditional information",
+  "tooltip_terms": "Terms of use",
+  "tooltip_coords": "Coordinate system",
+  "toolsmenu_maps": "Map Time Series",
+  "toolsmenu_landuse": "Land use",
+  "toolsmenu_biomass": "Biomass",
+  "toolsmenu_onset": "Rainy season onset forecast",
+  "toolsmenu_mfview": "Groundwater model data viewer",
+  "toolsmenu_hidro": "Flow forecast",
+  "modal_terms_title": "Rainy Season Onset Forecast - Terms of use",
+  "terms_of_use": "The user assumes all risk related to the use of information on the web pages of this platform. UFV provides this information as it is presented, and UFV disclaims any and all warranties, express or implied, including (but not limited to) any implied warranties of adequancy for a particular purpose. In no event will UFV be liable to users or third parties for any direct, indirect, incidental, consequential, special damages or loss of profit resulting from any use or misuse of this data.",
+  "modal_info_title": "Rainy Season Onset Forecast - Aditional information"
 }

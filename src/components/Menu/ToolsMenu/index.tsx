@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 import {
   GiMeshBall,
   GiStack,
@@ -16,15 +18,21 @@ interface ToolsMenuProps {
 }
 
 const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
+  const { t } = useTranslation();
+
   return (
     <Container ishidden={ishidden}>
       <Popover
         placement="right"
-        title="Séries temporais de mapas"
+        title={t('toolsmenu_maps')}
         content={
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <a href="http://corrente.dea.ufv.br/landuse">Uso do solo</a>
-            <a href="http://corrente.dea.ufv.br/biomass">Biomassa</a>
+            <a href="http://corrente.dea.ufv.br/landuse">
+              {t('toolsmenu_landuse')}
+            </a>
+            <a href="http://corrente.dea.ufv.br/biomass">
+              {t('toolsmenu_biomass')}
+            </a>
           </div>
         }
       >
@@ -34,17 +42,14 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
         />
       </Popover>
 
-      <Popover
-        placement="right"
-        content="Previsão do início da estação chuvosa"
-      >
+      <Popover placement="right" content={t('toolsmenu_onset')}>
         <GiRaining
           className="text-icon"
           style={{ fontSize: 25, color: '#1f5582', cursor: 'pointer' }}
         />
       </Popover>
 
-      <Popover placement="right" content="Previsão de vazões">
+      <Popover placement="right" content={t('toolsmenu_hidro')}>
         <GiNetworkBars
           className="text-icon"
           style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
@@ -54,10 +59,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
         />
       </Popover>
 
-      <Popover
-        placement="right"
-        content="Visualizador do modelo de águas subterrâneas"
-      >
+      <Popover placement="right" content={t('toolsmenu_mfview')}>
         <GiMeshBall
           className="text-icon"
           style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}

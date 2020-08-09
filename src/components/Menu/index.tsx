@@ -41,11 +41,15 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
   const [downloadURL, setDownloadURL] = useState('');
 
   const termsOfUse = HtmlParser(
-    `<span style="color: #1f5582; font-weight: 600; font-size: 16px;">OBahia</span><span> Previsão do Início da Estação Chuvosa - Termos de uso</span>`,
+    `<span style="color: #1f5582; font-weight: 600; font-size: 16px;">OBahia</span><span> ${t(
+      'modal_terms_title',
+    )}</span>`,
   );
 
   const additionalInformation = HtmlParser(
-    `<span style="color: #1f5582; font-weight: 600; font-size: 16px;">OBahia</span><span> Previsão do Início da Estação Chuvosa - Informações adicionais</span>`,
+    `<span style="color: #1f5582; font-weight: 600; font-size: 16px;">OBahia</span><span> ${t(
+      'modal_info_title',
+    )}</span>`,
   );
 
   const showTermsOfUseModal = () => {
@@ -121,7 +125,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
           />
         </a>
 
-        <Popover placement="right" content="Esconde/Mostra menu">
+        <Popover placement="right" content={t('tooltip_menu')}>
           <FiMenu
             id="handleMenu"
             type="menu"
@@ -139,9 +143,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
         <div className="static-layers">
           <span className="span-text">
-            <label>{t('description_title')}:</label> Esta ferramenta permite a
-            visualização customizada da previsão do início das chuvas para o
-            Oeste da Bahia, conforme previsto pelo sistema de previsão climática{' '}
+            <label>{t('description_title')}:</label> {t('description_start')}{' '}
             <Popover
               placement="right"
               content="Coupled Forecast System Model version 2"
@@ -151,21 +153,16 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
                 rel="noopener noreferrer"
                 href="https://cfs.ncep.noaa.gov/"
               >
-                {' '}
                 CFSv2
               </a>
             </Popover>
-            , do NCEP/NOAA. São apresentadas duas previsões anuais, uma em
-            01/08, e outra atualização em 01/09. Para ver a previsão para cada
-            localidade e o erro médio associado à previsão, clique no mapa ao
-            lado. Para mais informações clique em{' '}
+            . {t('description_end')}{' '}
             <FaInfoCircle
               className="text-icon"
               style={{ fontSize: '12px', color: '#1f5582', cursor: 'pointer' }}
               onClick={showMetadataModal}
-            />
-            . O uso dessas informações implica no aceite dos termos de uso
-            especificados em{' '}
+            />{' '}
+            {t('description_terms')}{' '}
             <GoAlert
               className="text-icon"
               style={{ fontSize: '12px', color: '#1f5582', cursor: 'pointer' }}
@@ -177,7 +174,10 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
         <LayerSwitcher
           name="onset"
-          label={`Previsão: ${format(forecastDate, 'dd/MM/yyyy')}`}
+          label={`${t('label_forecast')}: ${format(
+            forecastDate,
+            'dd/MM/yyyy',
+          )}`}
           handleLayerOpacity={handleLayerOpacity}
           handleLayerVisibility={handleLayerVisibility}
           layerIsVisible={true}
@@ -190,7 +190,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
         <div className="static-layers">
           <StaticLayerSwitcher
             name="hidrography"
-            label="Hidrografia"
+            label={t('label_hidrography')}
             handleLayerVisibility={handleLayerVisibility}
             layerIsVisible={false}
             legendIsVisible={false}
@@ -199,7 +199,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
           />
           <StaticLayerSwitcher
             name="highways"
-            label="Rodovias"
+            label={t('label_highways')}
             handleLayerVisibility={handleLayerVisibility}
             layerIsVisible={false}
             legendIsVisible={false}
@@ -209,7 +209,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
           <StaticLayerSwitcher
             name="watersheds"
-            label="Bacias hidrográficas"
+            label={t('label_watersheds')}
             handleLayerVisibility={handleLayerVisibility}
             layerIsVisible={true}
             legendIsVisible={false}
@@ -219,7 +219,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
           <StaticLayerSwitcher
             name="counties"
-            label="Municípios"
+            label={t('label_municipalities')}
             handleLayerVisibility={handleLayerVisibility}
             layerIsVisible={false}
             legendIsVisible={false}
@@ -231,14 +231,14 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
       </Content>
 
       <Footer ishidden={hidden}>
-        <Popover placement="right" content="Termos de uso">
+        <Popover placement="right" content={t('tooltip_terms')}>
           <GoAlert
             className="footer_icon"
             style={{ fontSize: '20px', color: '#fff', cursor: 'pointer' }}
             onClick={showTermsOfUseModal}
           />
         </Popover>
-        <Popover placement="right" content="Informações adicionais">
+        <Popover placement="right" content={t('tooltip_info')}>
           <FaInfoCircle
             className="footer_icon"
             style={{ fontSize: '20px', color: '#fff', cursor: 'pointer' }}
@@ -267,17 +267,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
           </Button>,
         ]}
       >
-        <p style={{ textAlign: 'justify' }}>
-          O usuário assume todo o risco relacionado ao uso de informações nas
-          páginas Web desta plataforma. A UFV fornece essas informações da
-          maneira como estão apresentadas, e a UFV se isenta de todas e
-          quaisquer garantias, expressas ou implícitas, incluindo (mas não se
-          limitando a) quaisquer garantias implícitas de adequação a uma
-          finalidade específica. Em nenhum caso a UFV será responsável perante
-          usuários ou terceiros por quaisquer danos diretos, indiretos,
-          incidentais, conseqüenciais, especiais ou perda de lucro resultante de
-          qualquer uso ou uso indevido desses dados.
-        </p>
+        <p style={{ textAlign: 'justify' }}>{t('terms_of_use')}</p>
       </Modal>
 
       <Modal
