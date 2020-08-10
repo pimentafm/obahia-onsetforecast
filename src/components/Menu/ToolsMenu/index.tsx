@@ -38,7 +38,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
       >
         <GiStack
           className="text-icon"
-          style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
+          style={{ fontSize: 25, color: '#AAD3DF', cursor: 'pointer' }}
         />
       </Popover>
 
@@ -52,7 +52,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
       <Popover placement="right" content={t('toolsmenu_hidro')}>
         <GiNetworkBars
           className="text-icon"
-          style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
+          style={{ fontSize: 25, color: '#AAD3DF', cursor: 'pointer' }}
           onClick={() =>
             window.open('http://corrente.dea.ufv.br/hidro', '_self')
           }
@@ -62,7 +62,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
       <Popover placement="right" content={t('toolsmenu_mfview')}>
         <GiMeshBall
           className="text-icon"
-          style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
+          style={{ fontSize: 25, color: '#AAD3DF', cursor: 'pointer' }}
           onClick={() =>
             window.open('http://corrente.dea.ufv.br/mfview', '_self')
           }
@@ -72,7 +72,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
       <Popover placement="right" content="outro">
         <GiPieChart
           className="text-icon"
-          style={{ fontSize: 25, color: '#888888', cursor: 'pointer' }}
+          style={{ fontSize: 25, color: '#AAD3DF', cursor: 'pointer' }}
           onClick={() => window.open('http://corrente.dea.ufv.br', '_self')}
         />
       </Popover>
