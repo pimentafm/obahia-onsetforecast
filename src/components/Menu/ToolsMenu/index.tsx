@@ -9,6 +9,7 @@ import {
   GiNetworkBars,
   GiPieChart,
 } from 'react-icons/gi';
+
 import { Popover } from 'antd';
 
 import { Container } from './styles';

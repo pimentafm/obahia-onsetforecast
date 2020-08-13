@@ -13,6 +13,8 @@ import { FiMenu } from 'react-icons/fi';
 import { FaInfoCircle } from 'react-icons/fa';
 import { GoAlert } from 'react-icons/go';
 
+import ChangeLanguage from './ChangeLanguage';
+
 import ToolsMenu from './ToolsMenu';
 import ZoomControl from './ZoomControl';
 import Scalebar from './ScaleBar';
@@ -23,7 +25,6 @@ import LayerSwitcher from '../LayerSwitcher';
 import { Container, Header, Footer, Content } from './styles';
 
 import { useTranslation } from 'react-i18next';
-import i18n from '../../i18n';
 
 interface MenuProps {
   ishidden: number;
@@ -104,10 +105,6 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
     [map],
   );
 
-  const changeLanguage = useCallback(locale => {
-    i18n.changeLanguage(locale);
-  }, []);
-
   useEffect(() => {
     setDownloadURL(`ftp://obahia.dea.ufv.br/landuse/`);
     if (getMonth(Date.now()) <= 7) {
@@ -119,6 +116,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
   return (
     <Container id="menu" ishidden={hidden}>
+      <ChangeLanguage ishidden={hidden} />
       <ToolsMenu ishidden={hidden} />
       <ZoomControl ishidden={hidden} map={map} />
       <Scalebar id="scalebar" map={map} />
@@ -147,22 +145,6 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
           <span>{t('appname')}</span>
         </div>
 
-        <div>
-          <button
-            className="locale-button"
-            onClick={() => changeLanguage('pt')}
-          >
-            PT-BR
-          </button>{' '}
-          |{' '}
-          <button
-            className="locale-button"
-            onClick={() => changeLanguage('en')}
-          >
-            EN
-          </button>
-        </div>
-
         <div className="static-layers">
           <span className="span-text">
             <label>{t('description_title')}:</label> {t('description_start')}{' '}
@@ -183,8 +165,8 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
               className="text-icon"
               style={{ fontSize: '12px', color: '#1f5582', cursor: 'pointer' }}
               onClick={showMetadataModal}
-            />{' '}
-            {t('description_terms')}{' '}
+            />
+            . {t('description_terms')}{' '}
             <GoAlert
               className="text-icon"
               style={{ fontSize: '12px', color: '#1f5582', cursor: 'pointer' }}
