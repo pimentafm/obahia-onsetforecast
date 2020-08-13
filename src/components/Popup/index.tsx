@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
+
 import OlMap from 'ol/Map';
 import TileWMS from 'ol/source/TileWMS';
 
@@ -12,12 +13,16 @@ import { FiXCircle } from 'react-icons/fi';
 import { Container } from './styles';
 import HtmlParser from 'react-html-parser';
 
+import { useTranslation } from 'react-i18next';
+
 interface PopupProps {
   map: OlMap;
   source: Array<TileWMS>;
 }
 
 const Popup: React.FC<PopupProps> = ({ map, source }) => {
+  const { t } = useTranslation();
+
   const [onset, setOnset] = useState<string>();
   const [popcoords, setPopCoords] = useState<string>();
 
@@ -108,7 +113,7 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
         <tr style={{ background: '#fff' }}>
           <td style={{ padding: `2px 5px` }}>MAE</td>
           <td id="popup-value" style={{ padding: `2px 5px` }}>
-            {onset ? `Inicio entre ${HtmlParser(onset)}` : 'Fora da camada'}
+            {onset ? `${t('popup_prefix')} ${HtmlParser(onset)} ${t('popup_sufix')}` : t('popup_clickout')}
           </td>
         </tr>
         <tr style={{ background: '#fff' }}>
@@ -119,7 +124,7 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
             id="popup-coords"
             style={{ padding: `2px 5px`, borderRadius: `0px 0px 2px 0px` }}
           >
-            {popcoords ? popcoords : 'Clique no mapa'}
+            {popcoords ? popcoords : t('popup_clickout')}
           </td>
         </tr>
       </tbody>

@@ -30,5 +30,8 @@
   "modal_info_paraghaph04": "The errors tend to be smaller on the west side (border with Tocantins and Goiás) than on the east side of the region (close to the São Francisco River). In addition, in the El Niño years, the MAE is between 2 and 8 days higher than the mean of the other years analyzed.",
   "modal_info_paraghaph05": "Further details on the forecasting system and its assessment for the region are available at:",
   "modal_info_paraghaph06": "Saha, S. et al., 2014: The NCEP Climate Forecast System Version 2, Journal of Climate, 27, 2185–2208. doi:",
-  "modal_info_paraghaph07": "Commar, L. F. S., 2020: Avaliação da previsão climática do início da estação chuvosa no Oeste da Bahia. Dissertação de MS, Universidade Federal de Viçosa, julho de 2020. Orientador: Marcos Heil Costa."
+  "modal_info_paraghaph07": "Commar, L. F. S., 2020: Avaliação da previsão climática do início da estação chuvosa no Oeste da Bahia. Dissertação de MS, Universidade Federal de Viçosa, julho de 2020. Orientador: Marcos Heil Costa.",
+  "popup_prefix": "Onset: ",
+  "popup_sufix": "days",
+  "popup_clickout": "Out of layer"
 }
