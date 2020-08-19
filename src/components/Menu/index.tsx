@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
+import i18n from '../../i18n';
+
 import MathJax from 'react-mathjax2';
 
 import HtmlParser from 'react-html-parser';
@@ -28,7 +30,8 @@ import { Container, Header, Footer, Content } from './styles';
 
 import { useTranslation } from 'react-i18next';
 
-import AAImage from '../../assets/images/anomalous acumulation_obahia.png';
+import AAImageEN from '../../assets/images/anomalous acumulation_obahia_en.png';
+import AAImagePT from '../../assets/images/anomalous acumulation_obahia_pt.png';
 
 interface MenuProps {
   ishidden: number;
@@ -306,38 +309,28 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
           <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph02')}</p>
           <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph03')}</p>
           <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph04')}</p>
-          <p style={{ textAlign: 'justify' }}>
-          O método do Anomalous Accumulation (AA) (Liebmann et al., 2007) foi utilizado para definir o início da estação chuvosa (Ic)
-          </p>
+          <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph05')}</p>
           
-          { metadataModal &&  <MathJax.Node>{tex}</MathJax.Node> }
+          { <MathJax.Node>{tex}</MathJax.Node> }
 
-          <p style={{ textAlign: 'justify' }}>em que R<sub>n</sub> é a chuva diária (mm dia<sup>-1</sup>) e R<sub>ref</sub> representa o valor de referência.</p>
-          <p style={{ textAlign: 'justify' }}>
-          Para o desenvolvimento deste estudo n se inicia em 1 de julho, metade da estação seca em boa parte do país, e se estende até o fim de junho do ano seguinte. O valor de referência foi estabelecido em 2,5 mm dia<sup>-1</sup> que é a necessidade hídrica de uma muda de soja (Abrahão e Costa 2018).
-          </p>
-          <p style={{ textAlign: 'justify' }}>
-          O AA é obtido a partir do cálculo da diferença entre a chuva acumulada diária e o valor de referência, assim construindo uma curva de chuvas acumuladas. Nesta curva de acumulação o valor mínimo representa o início da estação chuvosa, e o valor máximo representa o fim da estação chuvosa (Arvor et al., 2014). O método foi demonstrado através da Figura X.
-          </p>
-          <p style={{ textAlign: 'justify' }}>
-          É importante salientar que a curva de AA deve ser positiva por um certo tempo, assim caracterizando chuvas superiores ao valor de referência, o que garante o início da estação chuvosa (Liebmann et al., 2007, Arvor et al., 2014).
-          </p>
-          <p style={{ textAlign: 'justify' }}>
-          A utilização do R<sub>ref</sub> pode causar falsos início da estação chuvosa em regiões em que a chuva média se apresente inferior ao R<sub>ref</sub>. Para sanar este problema foi utilizado o cálculo da derivada da curva de AA (Arvor et al., 2014). O máximo da deriva do AA é um estimador da metade da estação chuvosa. Deste modo, o valor mínimo anterior ao máximo da derivada indica o início da estação chuvosa, para os casos em que média de chuvas forem inferiores ao valor de referência.
-          </p>
+          <p style={{ textAlign: 'justify' }}>{HtmlParser(t('modal_info_paraghaph06'))}</p>
+          <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph07')}</p>
+          <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph08')}</p>
+          <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph09')}</p>
+          <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph10')}</p>
 
           <div style={{ textAlign: 'center'}}>
             <img
               className="aa-image"
               width='100%'
-              src={AAImage}
+              src={(i18n.language === 'en' ? AAImageEN : AAImagePT)}
               alt="Anomalous accumulation"
             />
           </div>
 
-          {/* <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph05')}</p> */}
-          {/* <p style={{ textAlign: 'justify' }}>
-            {t('modal_info_paraghaph06')}
+          <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph11')}</p>
+          <p style={{ textAlign: 'justify' }}>
+            {t('modal_info_paraghaph12')}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -347,7 +340,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
               http://dx.doi.org/10.1175/JCLI-D-12-00823.1
             </a>
           </p>
-          <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph07')}</p> */}
+          <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph13')}</p>
         </Modal>
       </MathJax.Context>
     </Container>
