@@ -28,6 +28,8 @@ import { Container, Header, Footer, Content } from './styles';
 
 import { useTranslation } from 'react-i18next';
 
+import AAImage from '../../assets/images/anomalous acumulation_obahia.png';
+
 interface MenuProps {
   ishidden: number;
   map: OlMap;
@@ -323,6 +325,16 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
           <p style={{ textAlign: 'justify' }}>
           A utilização do R<sub>ref</sub> pode causar falsos início da estação chuvosa em regiões em que a chuva média se apresente inferior ao R<sub>ref</sub>. Para sanar este problema foi utilizado o cálculo da derivada da curva de AA (Arvor et al., 2014). O máximo da deriva do AA é um estimador da metade da estação chuvosa. Deste modo, o valor mínimo anterior ao máximo da derivada indica o início da estação chuvosa, para os casos em que média de chuvas forem inferiores ao valor de referência.
           </p>
+
+          <div style={{ textAlign: 'center'}}>
+            <img
+              className="aa-image"
+              width='100%'
+              src={AAImage}
+              alt="Anomalous accumulation"
+            />
+          </div>
+
           {/* <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph05')}</p> */}
           {/* <p style={{ textAlign: 'justify' }}>
             {t('modal_info_paraghaph06')}
