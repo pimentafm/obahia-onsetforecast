@@ -322,12 +322,15 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
           <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph08')}</p>
 
           <img
-            className="aa-image"
             width="100%"
             style={{ marginBottom: '10px' }}
             src={i18n.language === 'en' ? AAImageEN : AAImagePT}
             alt="Anomalous accumulation"
           />
+          <p style={{ textAlign: 'justify' }}>
+            <b>Figure 1: </b>
+            {t('modal_info_figure_legend')}
+          </p>
 
           <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph09')}</p>
           <p style={{ textAlign: 'justify' }}>
@@ -348,7 +351,9 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
             </a>
           </p>
 
-          <p style={{ textAlign: 'justify' }}>{t('modal_info_reference')}</p>
+          <p style={{ textAlign: 'justify' }}>
+            <b>{t('modal_info_reference')}</b>
+          </p>
 
           <p style={{ textAlign: 'justify' }}>
             {t('modal_info_ref01')}

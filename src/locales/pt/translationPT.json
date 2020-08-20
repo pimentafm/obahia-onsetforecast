@@ -41,6 +41,7 @@
   "modal_info_ref03": "Commar, L. F. S., 2020: Avaliação da previsão climática do início da estação chuvosa no Oeste da Bahia. Dissertação de MS, Universidade Federal de Viçosa, julho de 2020. Orientador: Marcos Heil Costa. Acesso em:",
   "modal_info_ref04": "Liebmann B, Camargo SJ, Seth A, Marengo JA, Carvalho LM V., Allured D, Fu R, Vera CS. 2007. Onset and End of the Rainy Season in South America in Observations and the ECHAM 4.5 Atmospheric General Circulation Model. Journal of Climate, 20(10): 2037–2050. doi:",
   "modal_info_ref05": "Saha, S. et al., 2014: The NCEP Climate Forecast System Version 2, Journal of Climate, 27, 2185–2208. doi:",
+  "modal_info_figure_legend": "Metodologia do AA aplicado para um pixel do TRMM 3B42. (a) Chuva diária para o ano hidrológico de 2013-2014; (b)Série de AA correspondente as chuvas apresentadas para o mesmo pixel da chuva diária, contendo o início da estação chuvosa (linha vertical azul), o fim da estação chuvosa (linha vertical vermelha) e a derivado do AA (linha verde).",
   "popup_prefix": "Início: ",
   "popup_sufix": "dias",
   "popup_clickout": "Fora da camada"
