@@ -283,7 +283,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
         <p style={{ textAlign: 'justify' }}>{t('terms_of_use')}</p>
       </Modal>
 
-      <MathJax.Context input='tex'>
+      <MathJax.Context input="tex">
         <Modal
           title={additionalInformation}
           width={800}
@@ -310,23 +310,29 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
           <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph03')}</p>
           <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph04')}</p>
           <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph05')}</p>
-          
-          { <MathJax.Node>{tex}</MathJax.Node> }
 
-          <p style={{ textAlign: 'justify' }}>{HtmlParser(t('modal_info_paraghaph06'))}</p>
-          <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph07')}</p>
+          {<MathJax.Node>{tex}</MathJax.Node>}
+
+          <p style={{ textAlign: 'justify' }}>
+            {HtmlParser(t('modal_info_paraghaph06'))}
+          </p>
+          <p style={{ textAlign: 'justify' }}>
+            {HtmlParser(t('modal_info_paraghaph07'))}
+          </p>
           <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph08')}</p>
-          <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph09')}</p>
-          <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph10')}</p>
 
-          <div style={{ textAlign: 'center'}}>
-            <img
-              className="aa-image"
-              width='100%'
-              src={(i18n.language === 'en' ? AAImageEN : AAImagePT)}
-              alt="Anomalous accumulation"
-            />
-          </div>
+          <img
+            className="aa-image"
+            width="100%"
+            style={{ marginBottom: '10px' }}
+            src={i18n.language === 'en' ? AAImageEN : AAImagePT}
+            alt="Anomalous accumulation"
+          />
+
+          <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph09')}</p>
+          <p style={{ textAlign: 'justify' }}>
+            {HtmlParser(t('modal_info_paraghaph10'))}
+          </p>
 
           <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph11')}</p>
           <p style={{ textAlign: 'justify' }}>
