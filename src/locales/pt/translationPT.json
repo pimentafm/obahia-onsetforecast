@@ -31,7 +31,7 @@
   "modal_info_paraghaph05": "O método do Anomalous Accumulation (AA) (Liebmann et al., 2007) foi utilizado para definir o início da estação chuvosa (Ic)",
   "modal_info_paraghaph06": "em que R<sub>n</sub> é a chuva diária (mm dia<sup>-1</sup>) e R<sub>ref</sub> representa o valor de referência.",
   "modal_info_paraghaph07": "Para o desenvolvimento deste estudo n se inicia em 1 de julho, metade da estação seca em boa parte do país, e se estende até o fim de junho do ano seguinte. O valor de referência foi estabelecido em 2,5 mm dia<sup>-1</sup> que é a necessidade hídrica de uma muda de soja (Abrahão e Costa 2018).",
-  "modal_info_paraghaph08": "O AA é obtido a partir do cálculo da diferença entre a chuva acumulada diária e o valor de referência, assim construindo uma curva de chuvas acumuladas. Nesta curva de acumulação o valor mínimo representa o início da estação chuvosa, e o valor máximo representa o fim da estação chuvosa (Arvor et al., 2014). O método foi demonstrado através da Figura X.",
+  "modal_info_paraghaph08": "O AA é obtido a partir do cálculo da diferença entre a chuva acumulada diária e o valor de referência, assim construindo uma curva de chuvas acumuladas. Nesta curva de acumulação o valor mínimo representa o início da estação chuvosa, e o valor máximo representa o fim da estação chuvosa (Arvor et al., 2014). O método foi demonstrado através da Figura 1.",
   "modal_info_paraghaph09": "É importante salientar que a curva de AA deve ser positiva por um certo tempo, assim caracterizando chuvas superiores ao valor de referência, o que garante o início da estação chuvosa (Liebmann et al., 2007, Arvor et al., 2014).",
   "modal_info_paraghaph10": "A utilização do R<sub>ref</sub> pode causar falsos início da estação chuvosa em regiões em que a chuva média se apresente inferior ao R<sub>ref</sub>. Para sanar este problema foi utilizado o cálculo da derivada da curva de AA (Arvor et al., 2014). O máximo da deriva do AA é um estimador da metade da estação chuvosa. Deste modo, o valor mínimo anterior ao máximo da derivada indica o início da estação chuvosa, para os casos em que média de chuvas forem inferiores ao valor de referência.",
   "modal_info_paraghaph11": "Maiores detalhes sobre o sistema de previsão e a sua avaliação para a região estão disponíveis em:",
@@ -42,6 +42,7 @@
   "modal_info_ref04": "Liebmann B, Camargo SJ, Seth A, Marengo JA, Carvalho LM V., Allured D, Fu R, Vera CS. 2007. Onset and End of the Rainy Season in South America in Observations and the ECHAM 4.5 Atmospheric General Circulation Model. Journal of Climate, 20(10): 2037–2050. doi:",
   "modal_info_ref05": "Saha, S. et al., 2014: The NCEP Climate Forecast System Version 2, Journal of Climate, 27, 2185–2208. doi:",
   "modal_info_figure_legend": "Metodologia do AA aplicado para um pixel do TRMM 3B42. (a) Chuva diária para o ano hidrológico de 2013-2014; (b)Série de AA correspondente as chuvas apresentadas para o mesmo pixel da chuva diária, contendo o início da estação chuvosa (linha vertical azul), o fim da estação chuvosa (linha vertical vermelha) e a derivado do AA (linha verde).",
+  "modal_info_figure": "Figura 1: ",
   "popup_prefix": "Início: ",
   "popup_sufix": "dias",
   "popup_clickout": "Fora da camada"

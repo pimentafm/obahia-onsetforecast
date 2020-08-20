@@ -328,7 +328,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
             alt="Anomalous accumulation"
           />
           <p style={{ textAlign: 'justify' }}>
-            <b>Figure 1: </b>
+            <b>{t('modal_info_figure')} </b>
             {t('modal_info_figure_legend')}
           </p>
 
