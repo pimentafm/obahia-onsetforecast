@@ -30,8 +30,8 @@ import { Container, Header, Footer, Content } from './styles';
 
 import { useTranslation } from 'react-i18next';
 
-import AAImageEN from '../../assets/images/anomalous acumulation_obahia_en.png';
-import AAImagePT from '../../assets/images/anomalous acumulation_obahia_pt.png';
+import AAImageEN from '../../assets/images/anomalous_acumulation_obahia_en.png';
+import AAImagePT from '../../assets/images/anomalous_acumulation_obahia_pt.png';
 
 interface MenuProps {
   ishidden: number;
