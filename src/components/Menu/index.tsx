@@ -335,8 +335,59 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
           </p>
 
           <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph11')}</p>
+
           <p style={{ textAlign: 'justify' }}>
-            {t('modal_info_paraghaph12')}
+            {t('modal_info_ref03')}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.locus.ufv.br/"
+            >
+              {' '}
+              ADD LINK HERE
+            </a>
+          </p>
+
+          <p style={{ textAlign: 'justify' }}>{t('modal_info_reference')}</p>
+
+          <p style={{ textAlign: 'justify' }}>
+            {t('modal_info_ref01')}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://doi.org/10.1016/j.agrformet.2018.02.031"
+            >
+              {' '}
+              https://doi.org/10.1016/j.agrformet.2018.02.031
+            </a>
+          </p>
+
+          <p style={{ textAlign: 'justify' }}>
+            {t('modal_info_ref02')}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://doi.org/10.1002/joc.3863"
+            >
+              {' '}
+              https://doi.org/10.1002/joc.3863
+            </a>
+          </p>
+
+          <p style={{ textAlign: 'justify' }}>
+            {t('modal_info_ref04')}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://doi.org/10.1175/JCLI4122.1"
+            >
+              {' '}
+              https://doi.org/10.1175/JCLI4122.1
+            </a>
+          </p>
+
+          <p style={{ textAlign: 'justify' }}>
+            {t('modal_info_ref05')}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -346,7 +397,6 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
               http://dx.doi.org/10.1175/JCLI-D-12-00823.1
             </a>
           </p>
-          <p style={{ textAlign: 'justify' }}>{t('modal_info_paraghaph13')}</p>
         </Modal>
       </MathJax.Context>
     </Container>
