@@ -43,7 +43,7 @@
   "modal_info_ref05": "Saha, S. et al., 2014: The NCEP Climate Forecast System Version 2, Journal of Climate, 27, 2185–2208. doi:",
   "modal_info_figure_legend": "Metodologia do AA aplicado para um pixel do TRMM 3B42. (a) Chuva diária para o ano hidrológico de 2013-2014; (b)Série de AA correspondente as chuvas apresentadas para o mesmo pixel da chuva diária, contendo o início da estação chuvosa (linha vertical azul), o fim da estação chuvosa (linha vertical vermelha) e a derivado do AA (linha verde).",
   "modal_info_figure": "Figura 1: ",
-  "popup_prefix": "Início: ",
+  "popup_prefix": "Início em ",
   "popup_sufix": "dias",
   "popup_clickout": "Fora da camada"
 }

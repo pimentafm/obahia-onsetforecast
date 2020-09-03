@@ -43,7 +43,7 @@
   "modal_info_ref05": "Saha, S. et al., 2014: The NCEP Climate Forecast System Version 2, Journal of Climate, 27, 2185–2208. doi:",
   "modal_info_figure_legend": "AA methodology applied for one pixel of TRMM 3B42. (a) daily rainfall for the 2013-2014 hydrological year; (b) AA series corresponding to the rains presented for the same pixel of the daily rainfall, containing the onset of the rainy season (blue vertical line), the demise of the rainy season (red vertical line) and the derivative of AA (green line).",
   "modal_info_figure": "Figure 1: ",
-  "popup_prefix": "Onset: ",
+  "popup_prefix": "Onset in ",
   "popup_sufix": "days",
   "popup_clickout": "Out of layer"
 }

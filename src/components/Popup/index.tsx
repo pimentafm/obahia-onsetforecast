@@ -34,13 +34,13 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
     element.style.display = 'none';
   }, []);
 
-  const getData = useCallback((url) => {
+  const getData = useCallback(url => {
     fetch(url)
       .then(response => {
         return response.text();
       })
       .then(value => {
-          setOnset(value);
+        setOnset(value);
       });
   }, []);
 
@@ -51,10 +51,12 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
 
       const stringifyFunc = createStringXY(5);
 
-      let urls = source.map(source => source.getFeatureInfoUrl(evt.coordinate, res, proj, {
-        INFO_FORMAT: 'text/html',
-        VERSION: '1.3.0',
-      }));
+      let urls = source.map(source =>
+        source.getFeatureInfoUrl(evt.coordinate, res, proj, {
+          INFO_FORMAT: 'text/html',
+          VERSION: '1.3.0',
+        }),
+      );
 
       getData(urls);
 
@@ -111,9 +113,11 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
           </th>
         </tr>
         <tr style={{ background: '#fff' }}>
-          <td style={{ padding: `2px 5px` }}>MAE</td>
+          <td style={{ padding: `2px 5px` }}>{t('label_forecast')}</td>
           <td id="popup-value" style={{ padding: `2px 5px` }}>
-            {onset ? `${t('popup_prefix')} ${HtmlParser(onset)} ${t('popup_sufix')}` : t('popup_clickout')}
+            {onset
+              ? `${t('popup_prefix')} ${HtmlParser(onset)} ${t('popup_sufix')}`
+              : t('popup_clickout')}
           </td>
         </tr>
         <tr style={{ background: '#fff' }}>
