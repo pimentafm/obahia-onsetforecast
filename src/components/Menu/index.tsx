@@ -116,10 +116,13 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
 
   useEffect(() => {
     setDownloadURL(`ftp://obahia.dea.ufv.br/landuse/`);
-    if (getMonth(Date.now()) <= 7) {
-      setForecastDate(sub(new Date(getYear(Date.now()), 7, 1), { years: 1 }));
-    } else {
+
+    if (getMonth(Date.now()) < 7) {
       setForecastDate(sub(new Date(getYear(Date.now()), 8, 1), { years: 1 }));
+    } else if (getMonth(Date.now()) >= 7 && getMonth(Date.now()) < 8) {
+      setForecastDate(new Date(getYear(Date.now()), 6, 1));
+    } else {
+      setForecastDate(new Date(getYear(Date.now()), 8, 1));
     }
   }, []);
 
