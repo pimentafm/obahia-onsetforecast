@@ -41,10 +41,10 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
         title={t('toolsmenu_maps')}
         content={
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <a href="http://corrente.dea.ufv.br/landuse">
+            <a href="http://obahia.dea.ufv.br/landuse">
               {t('toolsmenu_landuse')}
             </a>
-            <a href="http://corrente.dea.ufv.br/biomass">
+            <a href="http://obahia.dea.ufv.br/biomass">
               {t('toolsmenu_biomass')}
             </a>
           </div>
@@ -67,9 +67,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
         <MdTrendingDown
           className="text-icon"
           style={{ fontSize: 25, color: '#AAD3DF', cursor: 'pointer' }}
-          onClick={() =>
-            window.open('http://corrente.dea.ufv.br/hidro', '_self')
-          }
+          onClick={() => window.open('http://obahia.dea.ufv.br/hidro', '_self')}
         />
       </Popover>
 
@@ -78,7 +76,7 @@ const ToolsMenu: React.FC<ToolsMenuProps> = ({ ishidden }) => {
           className="text-icon"
           style={{ fontSize: 25, color: '#AAD3DF', cursor: 'pointer' }}
           onClick={() =>
-            window.open('http://corrente.dea.ufv.br/mfview', '_self')
+            window.open('http://obahia.dea.ufv.br/mfview', '_self')
           }
         />
       </Popover>
