@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-
+import { format, addDays, getYear, sub } from 'date-fns';
 import OlMap from 'ol/Map';
 import TileWMS from 'ol/source/TileWMS';
 
@@ -23,8 +23,9 @@ interface PopupProps {
 const Popup: React.FC<PopupProps> = ({ map, source }) => {
   const { t } = useTranslation();
 
-  const [onset, setOnset] = useState<string>();
-  const [popcoords, setPopCoords] = useState<string>();
+  const [onset, setOnset] = useState<string>('');
+  const [mae, setMAE] = useState<string>('');
+  const [popcoords, setPopCoords] = useState<string>('');
 
   const closePopUp = useCallback(() => {
     const element: HTMLElement = document.getElementById(
@@ -34,15 +35,34 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
     element.style.display = 'none';
   }, []);
 
-  const getData = useCallback(url => {
-    fetch(url)
-      .then(response => {
-        return response.text();
-      })
-      .then(value => {
-        setOnset(value);
-      });
-  }, []);
+  const getData = useCallback(
+    (url, type) => {
+      fetch(url)
+        .then(response => {
+          return response.text();
+        })
+        .then(value => {
+          if (type === 'onset') {
+            setOnset(
+              String(
+                format(
+                  addDays(
+                    new Date(
+                      sub(new Date(getYear(Date.now()), 6, 1), { years: 1 }),
+                    ),
+                    parseInt(value),
+                  ),
+                  t('popup_onsetdate'),
+                ),
+              ),
+            );
+          } else {
+            setMAE(value);
+          }
+        });
+    },
+    [t],
+  );
 
   useEffect(() => {
     map.on('singleclick', evt => {
@@ -58,7 +78,8 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
         }),
       );
 
-      getData(urls);
+      getData(urls[0], 'onset');
+      getData(urls[1], 'mae');
 
       setPopCoords(stringifyFunc(evt.coordinate));
 
@@ -115,9 +136,8 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
         <tr style={{ background: '#fff' }}>
           <td style={{ padding: `2px 5px` }}>{t('label_forecast')}</td>
           <td id="popup-value" style={{ padding: `2px 5px` }}>
-            {onset
-              ? `${t('popup_prefix')} ${HtmlParser(onset)} ${t('popup_sufix')}`
-              : t('popup_clickout')}
+            {t('popup_prefix')} {HtmlParser(onset)} {HtmlParser(mae)}{' '}
+            {t('popup_sufix')}
           </td>
         </tr>
         <tr style={{ background: '#fff' }}>

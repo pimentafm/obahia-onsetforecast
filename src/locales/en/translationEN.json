@@ -47,5 +47,6 @@
   "modal_info_figure": "Figure 1: ",
   "popup_prefix": "Onset in ",
   "popup_sufix": "days",
-  "popup_clickout": "Out of layer"
+  "popup_clickout": "Out of layer",
+  "popup_onsetdate": "yyyy/MM/dd"
 }

@@ -115,7 +115,7 @@ const Menu: React.FC<MenuProps> = ({ ishidden, map, ...rest }) => {
   );
 
   useEffect(() => {
-    setDownloadURL(`ftp://obahia.dea.ufv.br/onset/onset_forecast.zip`);
+    setDownloadURL(`ftp://obahia.dea.ufv.br/onset/onsetforecast.tif`);
 
     if (getMonth(Date.now()) < 7) {
       setForecastDate(sub(new Date(getYear(Date.now()), 8, 1), { years: 1 }));

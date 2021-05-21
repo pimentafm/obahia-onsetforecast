@@ -28,6 +28,7 @@ interface MapProps {
 
 const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
   const [onset] = useState(new TileLayer({ visible: true }));
+  const [mae] = useState(new TileLayer({ visible: false }));
   const [highways] = useState(new TileLayer({ visible: false }));
   const [hidrography] = useState(new TileLayer({ visible: false }));
   const [watersheds] = useState(new TileLayer({ visible: true }));
@@ -97,9 +98,18 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
   });
 
   const onset_source = new TileWMS({
-    url: wms.defaults.baseURL + 'onsetRegion.map',
+    url: wms.defaults.baseURL + 'onset.map',
     params: {
       LAYERS: 'onset',
+      TILED: true,
+    },
+    serverType: 'mapserver',
+  });
+
+  const mae_source = new TileWMS({
+    url: wms.defaults.baseURL + 'onset_mae.map',
+    params: {
+      LAYERS: 'mae',
       TILED: true,
     },
     serverType: 'mapserver',
@@ -125,6 +135,10 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
   onset.setSource(onset_source);
   onset.getSource().refresh();
 
+  mae.set('name', 'mae');
+  mae.setSource(mae_source);
+  mae.getSource().refresh();
+
   useEffect(() => {
     map.setTarget('map');
   });
@@ -133,7 +147,7 @@ const Map: React.FC<MapProps> = ({ defaultYear, defaultCategory }) => {
     <Container id="map">
       <Menu ishidden={window.innerWidth <= 760 ? 1 : 0} map={map} />
 
-      <Popup map={map} source={[onset_source]} />
+      <Popup map={map} source={[onset_source, mae_source]} />
 
       <Footer id="footer" map={map} />
     </Container>

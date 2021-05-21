@@ -47,5 +47,6 @@
   "modal_info_figure": "Figura 1: ",
   "popup_prefix": "Início em ",
   "popup_sufix": "dias",
-  "popup_clickout": "Fora da camada"
+  "popup_clickout": "Fora da camada",
+  "popup_onsetdate": "dd/MM/yyyy"
 }
