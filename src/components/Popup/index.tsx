@@ -48,7 +48,7 @@ const Popup: React.FC<PopupProps> = ({ map, source }) => {
                 format(
                   addDays(
                     new Date(
-                      sub(new Date(getYear(Date.now()), 6, 1), { years: 1 }),
+                      sub(new Date(getYear(Date.now()), 6, 1), { years: 0 }),
                     ),
                     parseInt(value),
                   ),
