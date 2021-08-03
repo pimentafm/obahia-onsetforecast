@@ -2,7 +2,7 @@
   "appname": "Previsão do Início da Estação Chuvosa",
   "description_title": "Descrição",
   "description_start": "Esta ferramenta permite a visualização customizada da previsão do início das chuvas para o Oeste da Bahia, conforme previsto pelo sistema de previsão climática",
-  "description_end": "do NCEP/NOAA. São apresentadas duas previsões anuais, uma em 01/08, e outra atualização em 01/09. Para ver a previsão para cada localidade e o erro médio associado à previsão, clique no mapa ao lado. Para mais informações clique em",
+  "description_end": "do NCEP/NOAA. São apresentadas duas previsões anuais, uma em 03/08, e outra atualização em 03/09. Para ver a previsão para cada localidade e o erro médio associado à previsão, clique no mapa ao lado. Para mais informações clique em",
   "description_terms": "O uso dessas informações implica no aceite da exoneração de responsabilidade especificada em",
   "label_forecast": "Previsão",
   "label_hidrography": "Hidrografia",
